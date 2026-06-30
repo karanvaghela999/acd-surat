@@ -163,6 +163,21 @@ test.describe("No broken images", () => {
   });
 });
 
+test.describe("404 page", () => {
+  test("shows custom 404 for unknown route", async ({ page }) => {
+    const res = await page.goto("/this-page-does-not-exist");
+    await expect(page.locator("text=404")).toBeVisible();
+    await expect(page.locator("text=Page not found")).toBeVisible();
+    await expect(page.getByRole("link", { name: /back to home/i })).toBeVisible();
+  });
+
+  test("404 back-to-home link navigates to /", async ({ page }) => {
+    await page.goto("/this-page-does-not-exist");
+    await page.getByRole("link", { name: /back to home/i }).click();
+    await expect(page).toHaveURL("/");
+  });
+});
+
 test.describe("Scroll to top", () => {
   test("scroll-to-top button appears after scrolling", async ({ page }) => {
     await page.goto("/");
