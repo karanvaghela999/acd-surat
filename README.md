@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AWS Community Day Surat 2026
 
-## Getting Started
+Website for **AWS Community Day Surat 2026**, organised by AWS User Group Surat.
 
-First, run the development server:
+**Live site:** https://acd26.awsugsurat.com
+
+---
+
+## Tech stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 16 (App Router, static export) |
+| Language | TypeScript |
+| Hosting | S3 + CloudFront |
+| DNS | Route 53 (subdomain of awsugsurat.com) |
+| CI/CD | GitHub Actions |
+| Monitoring | CloudWatch + SNS |
+| E2E tests | Playwright |
+
+---
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # starts on http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> The dev server uses Next.js image optimisation. The production build uses `output: 'export'` with `images.unoptimized: true` for static S3 hosting — behaviour is equivalent.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Building
 
-## Learn More
+```bash
+npm run build      # generates static output in ./out
+```
 
-To learn more about Next.js, take a look at the following resources:
+The `./out` directory is what gets deployed to S3.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## E2E tests
 
-## Deploy on Vercel
+[Playwright](https://playwright.dev) tests run across three device profiles:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Profile | Device | Viewport |
+|---|---|---|
+| desktop | Chrome | 1440 × 900 |
+| tablet | iPad Pro 11 | 834 × 1194 |
+| mobile | iPhone 14 | 390 × 844 |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx playwright test              # run all tests
+npx playwright test --ui         # interactive mode
+npx playwright test --grep "SEO" # run a specific group
+```
+
+Tests cover: SEO meta tags, `robots.txt`, `sitemap.xml`, navigation, all page sections, FAQ accordion, theme toggle, 404 page, and broken image detection.
+
+---
+
+## Deployment
+
+Deployments are automatic on every push to `main` via GitHub Actions (`.github/workflows/deploy.yml`):
+
+1. `npm ci` — install dependencies
+2. `npm run build` — static export to `./out`
+3. `aws s3 sync ./out s3://acd26.awsugsurat.com --delete` — sync to S3
+4. CloudFront invalidation on `/*`
+
+The workflow authenticates to AWS via OIDC (no long-term keys) using the role `github-actions-acd26-deploy`.
+
+---
+
+## AWS infrastructure
+
+| Resource | Detail |
+|---|---|
+| S3 bucket | `acd26.awsugsurat.com` — ap-south-1, private, OAC access only |
+| CloudFront | Distribution `E2AWA32IPHA0UU` — alias `acd26.awsugsurat.com` |
+| ACM certificate | us-east-1, DNS-validated |
+| Route 53 | A-alias record in `awsugsurat.com` hosted zone |
+| CloudWatch dashboard | `acd26-website` — requests, bandwidth, error rates |
+| CloudWatch alarms | 5 alarms → SNS `acd26-website-alerts` → `np@ciropsconsulting.com` |
+
+### CloudFront error handling
+
+| S3 response | CloudFront serves | HTTP status |
+|---|---|---|
+| 403 (missing key) | `/404.html` | 404 |
+| 404 | `/404.html` | 404 |
+
+---
+
+## Project structure
+
+```
+src/
+  app/
+    layout.tsx          # metadata, JSON-LD schemas, fonts
+    page.tsx            # single-page layout
+    not-found.tsx       # custom 404 page
+    robots.ts           # generates /robots.txt
+    sitemap.ts          # generates /sitemap.xml
+    globals.css         # design system tokens
+  components/           # Hero, Header, About, Tickets, FAQ, etc.
+public/                 # static assets (images, SVGs)
+tests/
+  site.spec.ts          # Playwright E2E tests
+playwright.config.ts    # test config (3 device profiles)
+.github/
+  workflows/
+    deploy.yml          # CI/CD pipeline
+```
