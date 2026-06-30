@@ -35,21 +35,38 @@ export const metadata: Metadata = {
     "Conference",
     "2026",
   ],
-  authors: [{ name: "AWS User Group Vadodara" }],
+  authors: [{ name: "AWS User Group Surat" }],
+  metadataBase: new URL("https://acd26.awsugsurat.com"),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "AWS Community Day Surat 2026",
     description:
       "Join developers and builders for a day of technical talks, hands-on learning, and connections. Learn from AWS experts and peers shaping the future of cloud, AI, and DevOps.",
-    url: "https://acdsurat26.awsugvad.in",
+    url: "https://acd26.awsugsurat.com",
     siteName: "AWS Community Day Surat 2026",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/hero-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AWS Community Day Surat 2026",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AWS Community Day Surat 2026",
     description:
       "Join developers and builders for a day of technical talks, hands-on learning, and connections.",
+    images: ["/hero-image.png"],
   },
 };
 
@@ -74,8 +91,8 @@ const jsonLdEvent = {
   },
   organizer: {
     "@type": "Organization",
-    name: "AWS User Group Vadodara",
-    url: "https://www.meetup.com/aws-community-vadodara",
+    name: "AWS User Group Surat",
+    url: "https://www.meetup.com/aws-user-group-surat",
   },
 };
 
