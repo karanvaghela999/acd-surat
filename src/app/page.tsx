@@ -5,6 +5,7 @@ import Tickets from "@/components/Tickets";
 import Sponsors from "@/components/Sponsors";
 import Gallery from "@/components/Gallery";
 import FAQ from "@/components/FAQ";
+import Volunteers from "@/components/Volunteers";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <Sponsors />
         <Gallery />
         <FAQ />
+        <Volunteers />
         <FooterCTA />
       </main>
       <Footer />
