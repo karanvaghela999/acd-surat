@@ -224,9 +224,11 @@
   border-bottom-color: var(--border-light) !important;
 }
 
-.mobileActive .logo,
-.mobileActive .mobileToggle span {
+.mobileActive .logo {
   color: var(--text-primary) !important;
+}
+
+.mobileActive .mobileToggle span {
   background-color: var(--text-primary) !important;
 }
 
