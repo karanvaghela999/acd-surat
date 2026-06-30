@@ -59,6 +59,14 @@ npx playwright test --grep "SEO" # run a specific group
 
 Tests cover: SEO meta tags, `robots.txt`, `sitemap.xml`, navigation, all page sections, FAQ accordion, theme toggle, 404 page, and broken image detection.
 
+**Production smoke tests** (run against the live site):
+
+```bash
+BASE_URL=https://acd26.awsugsurat.com npx playwright test tests/production.spec.ts
+```
+
+Checks: security response headers (HSTS, CSP, X-Frame-Options, etc.), correct HTTP status codes, and basic page load.
+
 ---
 
 ## Deployment
