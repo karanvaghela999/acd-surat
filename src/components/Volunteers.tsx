@@ -58,7 +58,7 @@ export default function Volunteers() {
     <section id="volunteers" className={styles.section}>
       <div className="container">
         <ScrollReveal className={styles.headerBlock}>
-          <span className="section-label">The Team</span>
+          <span className="section-label" style={{ color: "#94A3B8" }}>The Team</span>
           <h2 className={styles.title}>Meet our volunteers</h2>
           <p className={styles.subtitle}>
             The passionate builders behind the scenes making AWS Community Day
