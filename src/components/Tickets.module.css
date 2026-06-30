@@ -1,0 +1,487 @@
+/* ======================================
+   Tickets Section — Boarding Pass Design
+   ====================================== */
+
+.section {
+  width: 100%;
+}
+
+/* ---- Ticket Zone ---- */
+.ticketZone {
+  background-color: var(--surface-dark);
+  padding: var(--space-20) 0;
+  border-bottom: 1px solid var(--border-dark);
+  color: var(--text-on-dark);
+}
+
+.headerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 560px;
+  margin-bottom: var(--space-16);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 500;
+  color: #FAFAFA;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--text-5xl);
+  }
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: #DDECDA;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ---- Boarding Pass Cards Track ---- */
+.cardTrack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .cardTrack {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .cardTrack {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---- Individual Boarding Pass ---- */
+.boardingPass {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #2D3C4E;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  overflow: visible;
+}
+
+.boardingPass:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Highlighted (Popular) card */
+.highlighted {
+  border-color: #FF9900;
+  background-color: #1A2533;
+  color: var(--text-on-dark);
+}
+
+.highlighted:hover {
+  border-color: #FF9900;
+  box-shadow: 0 16px 48px rgba(255, 153, 0, 0.15);
+}
+
+/* ---- Tag Ribbon ---- */
+.tag {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  background-color: var(--surface-dark);
+  color: var(--text-on-dark);
+  z-index: 2;
+}
+
+.tagHighlight {
+  background-color: #FF9900;
+  color: #23303E;
+}
+
+/* ---- Stub (Top section) ---- */
+.stub {
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.stubInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.stubLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94A3B8;
+}
+
+.highlighted .stubLabel {
+  color: var(--text-on-dark-muted);
+}
+
+.passName {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: #FAFAFA;
+  letter-spacing: -0.02em;
+}
+
+.highlighted .passName {
+  color: var(--text-on-dark);
+}
+
+/* Price display */
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.priceCurrency {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: #94A3B8;
+}
+
+.highlighted .priceCurrency {
+  color: var(--text-on-dark-muted);
+}
+
+.priceValue {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 500;
+  color: #D1E5CD;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.highlighted .priceValue {
+  color: #FF9900;
+}
+
+/* ---- Perforation Divider ---- */
+.perforation {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 24px;
+  margin: 0 -1px; /* bleed into card border */
+}
+
+.perfCircleLeft,
+.perfCircleRight {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--surface-dark);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.perfCircleLeft {
+  margin-left: -12px;
+}
+
+.perfCircleRight {
+  margin-right: -12px;
+}
+
+.perfLine {
+  flex: 1;
+  height: 0;
+  border-top: 2px dashed rgba(255, 255, 255, 0.12);
+}
+
+.highlighted .perfLine {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.highlighted .perfCircleLeft,
+.highlighted .perfCircleRight {
+  background-color: var(--surface-dark);
+}
+
+/* ---- Pass Body (Perks) ---- */
+.passBody {
+  padding: var(--space-5);
+  flex: 1;
+}
+
+.perksList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.perkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: #94A3B8;
+  line-height: 1.35;
+}
+
+.highlighted .perkItem {
+  color: var(--text-on-dark-muted);
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  color: var(--accent-green);
+}
+
+.highlighted .checkIcon {
+  color: #FF9900;
+}
+
+/* ---- CTA Button ---- */
+.passBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  background-color: transparent;
+  color: #FAFAFA;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.passBtn:hover {
+  background-color: #D1E5CD;
+  color: #23303E;
+}
+
+.passBtnHighlight {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-on-dark);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.passBtnHighlight:hover {
+  background-color: #FF9900;
+  color: #23303E;
+}
+
+.arrow {
+  transition: transform var(--transition-fast);
+}
+
+.passBtn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ==================================
+   Community Patron Zone
+   ================================== */
+.patronZone {
+  background-color: #D1E5CD;
+  padding: var(--space-20) 0;
+  color: #23303E;
+}
+
+[data-theme="dark"] .patronZone {
+  background-color: #1A2533;
+  color: #F8FAFC;
+}
+
+.patronGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .patronGrid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-20);
+  }
+}
+
+.patronTextCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.patronTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 500;
+  color: #23303E;
+  letter-spacing: -0.03em;
+}
+
+[data-theme="dark"] .patronTitle {
+  color: #F8FAFC;
+}
+
+.patronDesc {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: #3D5A3A;
+  line-height: 1.6;
+}
+
+[data-theme="dark"] .patronDesc {
+  color: #94A3B8;
+}
+
+/* ---- Patron Card ---- */
+.patronCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  background-color: #23303E;
+  color: #FAFAFA;
+  padding: var(--space-8) var(--space-6);
+  border: 1px solid rgba(35, 48, 62, 0.15);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.patronCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .patronCard {
+  background: linear-gradient(145deg, #FF9900 0%, #E88B00 100%);
+  color: #23303E;
+}
+
+.patronCardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.patronBadge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #D1E5CD;
+}
+
+[data-theme="dark"] .patronBadge {
+  color: #23303E;
+}
+
+.patronPrice {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  color: #FAFAFA;
+  letter-spacing: -0.02em;
+}
+
+[data-theme="dark"] .patronPrice {
+  color: #23303E;
+}
+
+.patronPerks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.patronPerks li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: #DDECDA;
+  line-height: 1.35;
+}
+
+[data-theme="dark"] .patronPerks li {
+  color: #23303E;
+}
+
+.patronCheck {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  color: #D1E5CD;
+}
+
+[data-theme="dark"] .patronCheck {
+  color: #23303E;
+}
+
+.patronBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  background-color: #D1E5CD;
+  color: #23303E;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.patronBtn:hover {
+  background-color: #C2DAC2;
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .patronBtn {
+  background-color: #23303E;
+  color: #FAFAFA;
+}
+
+[data-theme="dark"] .patronBtn:hover {
+  background-color: #2D3C4E;
+}
+
+.patronBtn:hover .arrow {
+  transform: translateX(4px);
+}

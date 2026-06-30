@@ -1,0 +1,312 @@
+/* ============================================
+   AWS Community Day Surat 2026
+   Design System — High Contrast Bento Identity
+   ============================================ */
+
+/* --- CSS Variables & Themes --- */
+:root {
+  /* Default Light/Cream Theme */
+  --bg-primary: #EFF0F3;
+  --bg-secondary: #FAFAFA;
+  --bg-tertiary: #E8EBEF;
+  --text-primary: #23303E;
+  --text-secondary: #5A6C86;
+  --text-muted: #8A9BB4;
+  
+  /* Slate/Dark Slate Surface */
+  --surface-dark: #23303E;
+  --surface-dark-hover: #2D3C4E;
+  --text-on-dark: #FAFAFA;
+  --text-on-dark-muted: #DDECDA;
+  
+  /* Green/Sage Accent */
+  --accent-green: #D1E5CD;
+  --accent-green-hover: #C2DAC2;
+  
+  /* Selections & Borders */
+  --selection-bg: rgba(7, 194, 172, 0.25);
+  --border-light: #D1E5CD;
+  --border-muted: #5A6C86;
+  --border-dark: #23303E;
+
+  /* Typography */
+  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  /* Fluid Typography Scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.75rem + 0.3vw, 0.9375rem);
+  --text-base: clamp(0.9375rem, 0.875rem + 0.3vw, 1.0625rem);
+  --text-lg: clamp(1.0625rem, 0.95rem + 0.5vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.5vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+  --text-5xl: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --text-6xl: clamp(3.25rem, 2.5rem + 4vw, 5.5rem);
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  
+  /* Animation Durations */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Z-indices */
+  --z-header: 100;
+  --z-overlay: 1000;
+
+  /* Header height for offsets */
+  --header-height: 80px;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-tertiary: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  --surface-dark: #1E293B;
+  --surface-dark-hover: #334155;
+  --text-on-dark: #F8FAFC;
+  --text-on-dark-muted: #94A3B8;
+  
+  --accent-green: #FF9900; /* AWS Orange as the dark mode accent */
+  --accent-green-hover: #E88B00;
+  
+  --border-light: #334155;
+  --border-muted: #475569;
+  --border-dark: #1E293B;
+  --selection-bg: rgba(255, 153, 0, 0.25);
+}
+
+/* --- Reset & Core Layout --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+}
+
+/* Scroll Offset to Prevent Fixed Header Overlapping */
+section[id] {
+  scroll-margin-top: var(--header-height);
+}
+
+/* --- Global Layout Utilities --- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-10);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-20);
+  }
+}
+
+/* --- Clean Flat Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+  border-radius: 0;
+}
+
+.btn-primary {
+  background-color: var(--surface-dark);
+  color: var(--text-on-dark);
+  border: 1px solid var(--surface-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--surface-dark-hover);
+  border-color: var(--surface-dark-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.btn-green {
+  background-color: var(--accent-green);
+  color: var(--surface-dark);
+  border: 1px solid var(--accent-green);
+}
+
+.btn-green:hover {
+  background-color: var(--accent-green-hover);
+  border-color: var(--accent-green-hover);
+}
+
+/* Scroll indicator custom scroll */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* --- Section Global Layouts --- */
+.section-header-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--text-secondary);
+}
+
+.section-title {
+  font-size: var(--text-4xl);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Scroll animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrollbar theme adjustments */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}

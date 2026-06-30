@@ -1,0 +1,61 @@
+.countdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.value {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+  min-width: 2.5ch;
+  text-align: center;
+  background: linear-gradient(180deg, #fff 40%, var(--color-aws-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: var(--space-1);
+}
+
+.separator {
+  position: absolute;
+  right: calc(-0.5 * var(--space-3) - 0.15em);
+  top: 4px;
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-aws-orange);
+  font-weight: 300;
+  opacity: 0.5;
+  animation: blink 1s ease infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.1; }
+}
+
+@media (max-width: 480px) {
+  .countdown {
+    gap: var(--space-2);
+  }
+  .value {
+    font-size: var(--text-2xl);
+  }
+}

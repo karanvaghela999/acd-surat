@@ -1,0 +1,127 @@
+.footer {
+  background-color: #23303E; /* Dark slate background */
+  color: #FAFAFA;
+  padding: var(--space-16) 0 var(--space-10);
+  border-top: 1px solid var(--border-dark);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Brand */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: 320px;
+}
+
+.awsIcon {
+  color: #FAFAFA;
+  width: 44px;
+  height: auto;
+  transform: translateY(3px);
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
+.logoTextContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  text-align: left;
+}
+
+.logoTextMain {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #FAFAFA;
+}
+
+.logoTextSub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #DDECDA;
+}
+
+.brandText {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: #DDECDA; /* Soft light text */
+  line-height: 1.5;
+}
+
+/* Columns */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.colTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: #FAFAFA;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.link {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: #DDECDA;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: #FAFAFA;
+  text-decoration: underline;
+}
+
+/* Bottom Copyright */
+.bottom {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: #DDECDA;
+  font-weight: 300;
+}

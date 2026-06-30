@@ -1,0 +1,152 @@
+.sponsors {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-dark);
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+  align-items: end;
+}
+
+@media (min-width: 1024px) {
+  .headerRow {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+  .headerAction {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sponsorBlock {
+  width: 100%;
+}
+
+.blockTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.05em;
+}
+
+/* Bento visible grid lines layout */
+.bentoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border-light);
+  border-left: 1px solid var(--border-light);
+  width: 100%;
+}
+
+.bentoCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  background-color: var(--bg-secondary);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* Interactive Invitation Placeholder Styling */
+.placeholderCell {
+  border: 1px dashed var(--border-light);
+  background-color: transparent;
+}
+
+.placeholderCell:hover {
+  background-color: rgba(209, 229, 205, 0.2); /* Sage green tint overlay */
+  border-style: solid;
+}
+
+[data-theme="dark"] .placeholderCell:hover {
+  background-color: rgba(255, 153, 0, 0.05); /* Orange tint in dark mode */
+}
+
+.cellContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  text-align: center;
+  padding: var(--space-4);
+}
+
+.plusIcon {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.placeholderCell:hover .plusIcon {
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.placeholderLabel {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.partnerCall {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Cell Widths matching tiered slots */
+.cellFull {
+  flex-basis: 100%;
+}
+
+.cellHalf {
+  flex-basis: 100%;
+}
+
+@media (min-width: 640px) {
+  .cellHalf {
+    flex-basis: 50%;
+  }
+}
+
+.cellQuarter {
+  flex-basis: 50%;
+}
+
+@media (min-width: 640px) {
+  .cellQuarter {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cellQuarter {
+    flex-basis: 25%;
+  }
+}
+
+.prevBlock {
+  margin-top: 3rem;
+}
