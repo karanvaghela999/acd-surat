@@ -20,7 +20,6 @@ const SOCIAL_LINKS = [
   { label: "X / Twitter", href: "https://x.com/awsugsurat" },
   { label: "Instagram", href: "https://www.instagram.com/awsugsurat" },
   { label: "Meetup", href: "https://www.meetup.com/surat-aws-user-group/" },
-  { label: "YouTube", href: "#" },
 ];
 
 export default function Footer() {
