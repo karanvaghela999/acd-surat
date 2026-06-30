@@ -11,15 +11,15 @@ const EXPLORE_LINKS = [
 
 const COMMUNITY_LINKS = [
   { label: "Become a Speaker", href: "#" },
-  { label: "Become a Partner", href: "#" },
+  { label: "Become a Partner", href: "https://drive.google.com/file/d/1f0L8FCD_wxc7Z67H8CJUHhx2p7VRjLJp/view?usp=sharing" },
   { label: "Contact Us", href: "#" },
 ];
 
 const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "#" },
-  { label: "X / Twitter", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "Meetup", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/aws-user-group-surat" },
+  { label: "X / Twitter", href: "https://x.com/awsugsurat" },
+  { label: "Instagram", href: "https://www.instagram.com/awsugsurat" },
+  { label: "Meetup", href: "https://www.meetup.com/surat-aws-user-group/" },
   { label: "YouTube", href: "#" },
 ];
 
@@ -64,7 +64,13 @@ export default function Footer() {
           <h4 className={styles.colTitle}>Community</h4>
           <div className={styles.links}>
             {COMMUNITY_LINKS.map((link) => (
-              <a key={link.label} href={link.href} className={styles.link}>
+              <a 
+                key={link.label} 
+                href={link.href} 
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={styles.link}
+              >
                 {link.label}
               </a>
             ))}
@@ -76,7 +82,13 @@ export default function Footer() {
           <h4 className={styles.colTitle}>Socials</h4>
           <div className={styles.links}>
             {SOCIAL_LINKS.map((link) => (
-              <a key={link.label} href={link.href} className={styles.link}>
+              <a 
+                key={link.label} 
+                href={link.href} 
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={styles.link}
+              >
                 {link.label}
               </a>
             ))}

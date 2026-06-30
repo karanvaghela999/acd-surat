@@ -14,7 +14,7 @@ const SILVER_SPONSORS = [
 ];
 
 export default function Sponsors() {
-  const mailtoLink = "#";
+  const partnerLink = "https://drive.google.com/file/d/1f0L8FCD_wxc7Z67H8CJUHhx2p7VRjLJp/view?usp=sharing";
 
   return (
     <section id="sponsors" className={`section ${styles.sponsors}`}>
@@ -29,7 +29,9 @@ export default function Sponsors() {
           </div>
           <div className={styles.headerAction}>
             <a
-              href={mailtoLink}
+              href={partnerLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary"
               style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
             >
@@ -43,7 +45,9 @@ export default function Sponsors() {
           <h3 className={styles.blockTitle}>Diamond Sponsor</h3>
           <div className={styles.bentoGrid}>
             <a
-              href={mailtoLink}
+              href={partnerLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`${styles.bentoCell} ${styles.cellFull} ${styles.placeholderCell}`}
             >
               <div className={styles.cellContent}>
@@ -62,7 +66,9 @@ export default function Sponsors() {
             {GOLD_SPONSORS.map((sponsor, idx) => (
               <a
                 key={idx}
-                href={mailtoLink}
+                href={partnerLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${styles.bentoCell} ${styles.cellHalf} ${styles.placeholderCell}`}
               >
                 <div className={styles.cellContent}>
@@ -82,7 +88,9 @@ export default function Sponsors() {
             {SILVER_SPONSORS.map((sponsor, idx) => (
               <a
                 key={idx}
-                href={mailtoLink}
+                href={partnerLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${styles.bentoCell} ${styles.cellQuarter} ${styles.placeholderCell}`}
               >
                 <div className={styles.cellContent}>
