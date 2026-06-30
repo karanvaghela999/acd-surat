@@ -23,7 +23,7 @@ const FEATURES = [
     ),
     title: "Community Conversations",
     description:
-      "Join discussions with developers, architects, and practitioners from Vadodara's growing cloud community.",
+      "Join discussions with developers, architects, and practitioners from Surat's growing cloud community.",
   },
   {
     icon: (
