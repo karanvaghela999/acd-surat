@@ -72,7 +72,6 @@ jobs:
                   "--if-match", etag, "--region", "us-east-1")
               print(f"Updated response headers policy {policy_id}")
           else:
-              policy_cfg["CallerReference"] = "acd26-security-headers-v1"
               r = run("aws", "cloudfront", "create-response-headers-policy",
                       "--response-headers-policy-config", json.dumps(policy_cfg),
                       "--region", "us-east-1", "--output", "json")
