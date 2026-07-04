@@ -141,26 +141,23 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Logo placeholder */
-.logoPlaceholder {
-  width: 64px;
-  height: 64px;
+/* Logo styling */
+.logoWrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #23303E 0%, #2D3C4E 100%);
-  color: #D1E5CD;
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  user-select: none;
+  background-color: #ffffff; /* White background for logos */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-[data-theme="dark"] .logoPlaceholder {
-  background: linear-gradient(135deg, #D1E5CD 0%, #C2DAC2 100%);
-  color: #23303E;
+.partnerLogo {
+  object-fit: contain;
+  padding: 12px;
 }
 
 .partnerName {

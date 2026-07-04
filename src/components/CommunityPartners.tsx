@@ -1,16 +1,15 @@
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./CommunityPartners.module.css";
 
 const PARTNERS = [
-  { name: "GDG Surat", initials: "GDG" },
-  { name: "Flutter Surat", initials: "FS" },
-  { name: "DevOps Surat", initials: "DO" },
-  { name: "Cloud Native Surat", initials: "CN" },
-  { name: "Women Techmakers", initials: "WT" },
-  { name: "Tech Community India", initials: "TCI" },
-  { name: "Startup Grind Surat", initials: "SG" },
-  { name: "GDSC Gujarat", initials: "GSC" },
+  { name: "SBG PPSU", logo: "/community-partners/sbg_ppsu.png" },
+  { name: "AWS UG Ahmedabad", logo: "/community-partners/ug_ahm.png" },
+  { name: "AWS UG Vadodara", logo: "/community-partners/ug_vad.png" },
 ];
+
+// Repeat to ensure the track is wide enough for large screens, then duplicate for infinite scroll
+const REPEATED_PARTNERS = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 
 export default function CommunityPartners() {
   return (
@@ -28,10 +27,10 @@ export default function CommunityPartners() {
         <div className={styles.marqueeWrapper}>
           <div className={styles.marqueeTrack}>
             {/* Duplicate the list for seamless infinite scroll */}
-            {[...PARTNERS, ...PARTNERS].map((partner, i) => (
+            {[...REPEATED_PARTNERS, ...REPEATED_PARTNERS].map((partner, i) => (
               <div key={`${partner.name}-${i}`} className={styles.partnerCard}>
-                <div className={styles.logoPlaceholder}>
-                  <span>{partner.initials}</span>
+                <div className={styles.logoWrapper}>
+                  <Image src={partner.logo} alt={partner.name} fill className={styles.partnerLogo} />
                 </div>
                 <span className={styles.partnerName}>{partner.name}</span>
               </div>
@@ -43,8 +42,8 @@ export default function CommunityPartners() {
         <div className={styles.staticGrid}>
           {PARTNERS.map((partner) => (
             <div key={partner.name} className={styles.partnerCard}>
-              <div className={styles.logoPlaceholder}>
-                <span>{partner.initials}</span>
+              <div className={styles.logoWrapper}>
+                <Image src={partner.logo} alt={partner.name} fill className={styles.partnerLogo} />
               </div>
               <span className={styles.partnerName}>{partner.name}</span>
             </div>
