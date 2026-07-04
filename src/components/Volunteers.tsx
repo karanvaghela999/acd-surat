@@ -6,63 +6,63 @@ const VOLUNTEERS = [
   {
     name: "Volunteer 1",
     role: "Software Engineer",
-    image: "/volunteers/img1.png",
+    image: "/volunteers/img1.jpeg",
     initials: "V1",
     linkedin: "#",
   },
   {
     name: "Volunteer 2",
     role: "Cloud Architect",
-    image: "/volunteers/img2.png",
+    image: "/volunteers/img2.jpeg",
     initials: "V2",
     linkedin: "#",
   },
   {
     name: "Volunteer 3",
     role: "DevOps Engineer",
-    image: "/volunteers/img3.png",
+    image: "/volunteers/img3.jpeg",
     initials: "V3",
     linkedin: "#",
   },
   {
     name: "Volunteer 4",
     role: "Data Scientist",
-    image: "/volunteers/img4.png",
+    image: "/volunteers/img4.jpeg",
     initials: "V4",
     linkedin: "#",
   },
   {
     name: "Volunteer 5",
     role: "Product Manager",
-    image: "/volunteers/img5.png",
+    image: "/volunteers/img5.jpeg",
     initials: "V5",
     linkedin: "#",
   },
   {
     name: "Volunteer 6",
     role: "UI/UX Designer",
-    image: "/volunteers/img6.png",
+    image: "/volunteers/img6.jpeg",
     initials: "V6",
     linkedin: "#",
   },
   {
     name: "Volunteer 7",
     role: "Frontend Developer",
-    image: "/volunteers/img7.png",
+    image: "/volunteers/img7.jpeg",
     initials: "V7",
     linkedin: "#",
   },
   {
     name: "Volunteer 8",
     role: "Backend Developer",
-    image: "/volunteers/img8.png",
+    image: "/volunteers/img8.jpeg",
     initials: "V8",
     linkedin: "#",
   },
   {
     name: "Volunteer 9",
     role: "Systems Administrator",
-    image: "/volunteers/img9.png",
+    image: "/volunteers/img9.jpeg",
     initials: "V9",
     linkedin: "#",
   },
@@ -95,15 +95,14 @@ export default function Volunteers() {
                   <div className={styles.avatarFallback}>
                     <span>{volunteer.initials}</span>
                   </div>
-                  {/* Uncomment below and add real images to /public/volunteers/ */}
-                  {/* <Image
+                  <Image
                     src={volunteer.image}
                     alt={volunteer.name}
                     fill
                     quality={80}
                     className={styles.avatarImage}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
-                  /> */}
+                  />
                   <div className={styles.avatarGlow} />
                 </div>
                 <div className={styles.info}>
