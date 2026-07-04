@@ -5,51 +5,66 @@ import styles from "./Volunteers.module.css";
 const VOLUNTEERS = [
   {
     name: "Volunteer 1",
-    role: "Event Coordinator",
-    image: "/volunteers/volunteer-1.png",
+    role: "Software Engineer",
+    image: "/volunteers/img1.png",
     initials: "V1",
+    linkedin: "#",
   },
   {
     name: "Volunteer 2",
-    role: "Tech Lead",
-    image: "/volunteers/volunteer-2.png",
+    role: "Cloud Architect",
+    image: "/volunteers/img2.png",
     initials: "V2",
+    linkedin: "#",
   },
   {
     name: "Volunteer 3",
-    role: "Marketing Lead",
-    image: "/volunteers/volunteer-3.png",
+    role: "DevOps Engineer",
+    image: "/volunteers/img3.png",
     initials: "V3",
+    linkedin: "#",
   },
   {
     name: "Volunteer 4",
-    role: "Design Lead",
-    image: "/volunteers/volunteer-4.png",
+    role: "Data Scientist",
+    image: "/volunteers/img4.png",
     initials: "V4",
+    linkedin: "#",
   },
   {
     name: "Volunteer 5",
-    role: "Logistics Lead",
-    image: "/volunteers/volunteer-5.png",
+    role: "Product Manager",
+    image: "/volunteers/img5.png",
     initials: "V5",
+    linkedin: "#",
   },
   {
     name: "Volunteer 6",
-    role: "Community Manager",
-    image: "/volunteers/volunteer-6.png",
+    role: "UI/UX Designer",
+    image: "/volunteers/img6.png",
     initials: "V6",
+    linkedin: "#",
   },
   {
     name: "Volunteer 7",
-    role: "Content Lead",
-    image: "/volunteers/volunteer-7.png",
+    role: "Frontend Developer",
+    image: "/volunteers/img7.png",
     initials: "V7",
+    linkedin: "#",
   },
   {
     name: "Volunteer 8",
-    role: "Social Media Lead",
-    image: "/volunteers/volunteer-8.png",
+    role: "Backend Developer",
+    image: "/volunteers/img8.png",
     initials: "V8",
+    linkedin: "#",
+  },
+  {
+    name: "Volunteer 9",
+    role: "Systems Administrator",
+    image: "/volunteers/img9.png",
+    initials: "V9",
+    linkedin: "#",
   },
 ];
 
@@ -68,26 +83,34 @@ export default function Volunteers() {
 
         <div className={styles.grid}>
           {VOLUNTEERS.map((volunteer, i) => (
-            <ScrollReveal key={volunteer.name} className={styles.card}>
-              <div className={styles.avatarWrapper}>
-                <div className={styles.avatarFallback}>
-                  <span>{volunteer.initials}</span>
+            <ScrollReveal key={volunteer.name}>
+              <a 
+                href={volunteer.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.card}
+                style={{ textDecoration: "none" }}
+              >
+                <div className={styles.avatarWrapper}>
+                  <div className={styles.avatarFallback}>
+                    <span>{volunteer.initials}</span>
+                  </div>
+                  {/* Uncomment below and add real images to /public/volunteers/ */}
+                  {/* <Image
+                    src={volunteer.image}
+                    alt={volunteer.name}
+                    fill
+                    quality={80}
+                    className={styles.avatarImage}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
+                  /> */}
+                  <div className={styles.avatarGlow} />
                 </div>
-                {/* Uncomment below and add real images to /public/volunteers/ */}
-                {/* <Image
-                  src={volunteer.image}
-                  alt={volunteer.name}
-                  fill
-                  quality={80}
-                  className={styles.avatarImage}
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
-                /> */}
-                <div className={styles.avatarGlow} />
-              </div>
-              <div className={styles.info}>
-                <h3 className={styles.name}>{volunteer.name}</h3>
-                <p className={styles.role}>{volunteer.role}</p>
-              </div>
+                <div className={styles.info}>
+                  <h3 className={styles.name}>{volunteer.name}</h3>
+                  <p className={styles.role}>{volunteer.role}</p>
+                </div>
+              </a>
             </ScrollReveal>
           ))}
         </div>
