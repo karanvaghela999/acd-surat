@@ -4,67 +4,67 @@ import styles from "./Volunteers.module.css";
 
 const VOLUNTEERS = [
   {
-    name: "Volunteer 1",
-    role: "Software Engineer",
+    name: "Dhaval Nagar",
+    role: "founder @appgambit, AWS UG Surat Lead",
     image: "/volunteers/img1.jpeg",
     initials: "V1",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/dhavaln/",
   },
   {
-    name: "Volunteer 2",
-    role: "Cloud Architect",
+    name: "Nirmal Chhodvadiya",
+    role: "Sr Data Engineer, Ex-AWS, AWS UG Lead Surat",
     image: "/volunteers/img2.jpeg",
     initials: "V2",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/nirmalpatel008",
   },
   {
-    name: "Volunteer 3",
-    role: "DevOps Engineer",
+    name: "Nirav Pancholi",
+    role: "Founder, CirOps Consulting",
     image: "/volunteers/img3.jpeg",
     initials: "V3",
-    linkedin: "#",
+    linkedin: "https://linkedin.com/in/niravpancholi",
   },
   {
-    name: "Volunteer 4",
-    role: "Data Scientist",
+    name: "Abhishek",
+    role: "AWS Cloud Architect",
     image: "/volunteers/img4.jpeg",
     initials: "V4",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/itsabhishekm/",
   },
   {
-    name: "Volunteer 5",
-    role: "Product Manager",
+    name: "Mitul Sarvaiya",
+    role: "Director of AI @ Sarwaswa Ai Labs",
     image: "/volunteers/img5.jpeg",
     initials: "V5",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/mitulsrv/",
   },
   {
-    name: "Volunteer 6",
-    role: "UI/UX Designer",
+    name: "Vishal Kotecha",
+    role: "Sr Engineering Manager at Empower",
     image: "/volunteers/img6.jpeg",
     initials: "V6",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/vkotecha",
   },
   {
-    name: "Volunteer 7",
-    role: "Frontend Developer",
+    name: "Rahul Ladumor",
+    role: "Senior Solution Architect at ASTM International",
     image: "/volunteers/img7.jpeg",
     initials: "V7",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/rahulladumor",
   },
   {
-    name: "Volunteer 8",
-    role: "Backend Developer",
+    name: "Karan Vaghela",
+    role: "Penetration Tester",
     image: "/volunteers/img8.jpeg",
     initials: "V8",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/karanvaghela999/",
   },
   {
-    name: "Volunteer 9",
-    role: "Systems Administrator",
+    name: "Kirtan Goswami",
+    role: "Associate AI engineer at Ciphernutz IT services",
     image: "/volunteers/img9.jpeg",
     initials: "V9",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/kirtan-goswami",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function Volunteers() {
         <div className={styles.grid}>
           {VOLUNTEERS.map((volunteer, i) => (
             <ScrollReveal key={volunteer.name}>
-              <a 
+              <a
                 href={volunteer.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
