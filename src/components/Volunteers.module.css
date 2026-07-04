@@ -3,9 +3,15 @@
    ====================================== */
 
 .section {
-  background-color: var(--surface-dark);
+  position: relative;
+  background-color: var(--bg-primary);
   padding: var(--space-20) 0;
-  border-bottom: 1px solid var(--border-dark);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-light);
+}
+
+[data-theme="dark"] .section {
+  background-color: var(--surface-dark);
   color: var(--text-on-dark);
 }
 
@@ -21,8 +27,12 @@
   font-family: var(--font-heading);
   font-size: var(--text-4xl);
   font-weight: 500;
-  color: #FAFAFA;
+  color: var(--text-primary);
   letter-spacing: -0.03em;
+}
+
+[data-theme="dark"] .title {
+  color: #FAFAFA;
 }
 
 @media (min-width: 768px) {
@@ -33,10 +43,15 @@
 
 .subtitle {
   font-family: var(--font-body);
-  font-size: var(--text-base);
-  color: #DDECDA;
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
   font-weight: 300;
+  max-width: 600px;
   line-height: 1.6;
+}
+
+[data-theme="dark"] .subtitle {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ---- Grid ---- */
@@ -140,15 +155,23 @@
 
 .name {
   font-family: var(--font-heading);
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: #FAFAFA;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
   letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .name {
+  color: #FAFAFA;
 }
 
 .role {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  font-weight: 300;
-  color: #94A3B8;
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .role {
+  color: rgba(255, 255, 255, 0.7);
 }

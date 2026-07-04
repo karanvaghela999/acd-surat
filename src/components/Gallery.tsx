@@ -3,11 +3,10 @@ import ScrollReveal from "./ScrollReveal";
 import styles from "./Gallery.module.css";
 
 const IMAGES = [
-  { src: "/gallery-1.png", alt: "AWS User Group Surat Meetup #1 - Cloud Innovators", span: "wide" },
-  { src: "/gallery-2.png", alt: "Serverless & Containers Hands-on Workshop", span: "normal" },
-  { src: "/gallery-3.png", alt: "Surat Developers Technical Roundtable", span: "normal" },
-  { src: "/gallery-4.png", alt: "Community Mentorship & Networking Session", span: "normal" },
-  { src: "/gallery-5.png", alt: "Cloud Builders Technical Deep-Dive Workshop", span: "wide" },
+  { src: "/meetup-img/img1.jpeg", alt: "AWS User Group Surat Meetup", span: "normal" },
+  { src: "/meetup-img/img2.avif", alt: "AWS User Group Surat Meetup", span: "normal" },
+  { src: "/meetup-img/img3.jpeg", alt: "AWS User Group Surat Meetup", span: "normal" },
+  { src: "/meetup-img/img4.jpeg", alt: "AWS User Group Surat Meetup", span: "normal" },
 ];
 
 export default function Gallery() {
@@ -16,7 +15,7 @@ export default function Gallery() {
       {/* Decorative Blueprint Lines in Background */}
       <div className={styles.linesOverlay}>
         <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.05 }}>
-          <path d="M0 100h2000M0 300h2000M0 500h2000M300 0v2000M800 0v2000" stroke="#FAFAFA" strokeWidth="1" />
+          <path d="M0 100h2000M0 300h2000M0 500h2000M300 0v2000M800 0v2000" stroke="#23303E" strokeWidth="1" />
         </svg>
       </div>
 
@@ -28,21 +27,15 @@ export default function Gallery() {
           </h2>
         </ScrollReveal>
 
-        <div className={styles.grid}>
-          {IMAGES.map((img, i) => (
-            <ScrollReveal
-              key={img.src}
-              delay={Math.min(i + 1, 4)}
-              className={`${styles.imageWrapper} ${
-                img.span === "wide" ? styles.wide : ""
-              }`}
-            >
-              <div className={styles.imageCard}>
+        <div className={styles.marqueeWrapper}>
+          <div className={styles.marqueeTrack}>
+            {[...IMAGES, ...IMAGES].map((img, i) => (
+              <div key={`${img.src}-${i}`} className={styles.imageCard}>
                 <Image
                   src={img.src}
                   alt={img.alt}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                  sizes="(max-width: 768px) 300px, 600px"
                   className={styles.image}
                   quality={80}
                 />
@@ -50,8 +43,8 @@ export default function Gallery() {
                   <p className={styles.imageCaption}>{img.alt}</p>
                 </div>
               </div>
-            </ScrollReveal>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

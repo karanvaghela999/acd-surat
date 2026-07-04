@@ -3,7 +3,7 @@
    ====================================== */
 
 .section {
-  background-color: #D1E5CD;
+  background-color: #23303E; /* Dark slate */
   padding: var(--space-20) 0;
   border-bottom: 1px solid var(--border-dark);
   overflow: hidden;
@@ -25,7 +25,7 @@
   font-family: var(--font-heading);
   font-size: var(--text-4xl);
   font-weight: 500;
-  color: #23303E;
+  color: #FAFAFA;
   letter-spacing: -0.03em;
 }
 
@@ -42,7 +42,7 @@
 .subtitle {
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: #3D5A3A;
+  color: #94A3B8;
   font-weight: 300;
   line-height: 1.6;
 }
@@ -120,24 +120,15 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-6) var(--space-8);
-  background-color: rgba(35, 48, 62, 0.06);
-  border: 1px solid rgba(35, 48, 62, 0.08);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transition: transform var(--transition-fast), background-color var(--transition-fast);
   flex-shrink: 0;
   min-width: 160px;
 }
 
-[data-theme="dark"] .partnerCard {
-  background-color: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.06);
-}
-
 .partnerCard:hover {
   transform: translateY(-2px);
-  background-color: rgba(35, 48, 62, 0.1);
-}
-
-[data-theme="dark"] .partnerCard:hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -159,11 +150,7 @@
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 400;
-  color: #23303E;
+  color: #DDECDA;
   text-align: center;
   white-space: nowrap;
-}
-
-[data-theme="dark"] .partnerName {
-  color: #DDECDA;
 }

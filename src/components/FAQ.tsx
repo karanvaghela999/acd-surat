@@ -81,7 +81,7 @@ export default function FAQ() {
         <div className={styles.grid}>
           {/* Left Column: Title */}
           <ScrollReveal className={styles.titleCol}>
-            <h2 className="section-title" style={{ fontSize: "clamp(2rem, 1.8rem + 2vw, 3.25rem)" }}>
+            <h2 className="section-title" style={{ fontSize: "clamp(2rem, 1.8rem + 2vw, 3.25rem)", color: "#FAFAFA" }}>
               FAQ&apos;s
             </h2>
           </ScrollReveal>
