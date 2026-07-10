@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Countdown from "./Countdown";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -50,6 +51,9 @@ export default function Hero() {
             <span className={styles.metaValue}>Surat, India</span>
           </div>
         </div>
+
+        {/* Countdown Timer */}
+        <Countdown />
 
         {/* Tagline */}
         <p className={styles.tagline}>
