@@ -1,6 +1,6 @@
 .faq {
-  background-color: #23303E; /* Dark slate */
-  border-bottom: 1px solid var(--border-dark);
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
   padding-top: var(--space-20);
   padding-bottom: var(--space-20);
 }
@@ -34,7 +34,7 @@
 }
 
 .item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: border-color var(--transition-fast);
 }
 
@@ -60,7 +60,7 @@
   font-family: var(--font-heading);
   font-size: var(--text-xl);
   font-weight: 500;
-  color: #FAFAFA;
+  color: var(--text-primary);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -73,7 +73,7 @@
 
 .icon {
   flex-shrink: 0;
-  color: #FAFAFA;
+  color: var(--text-primary);
   transition: transform var(--transition-base);
 }
 
@@ -95,7 +95,7 @@
 .answerText {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: #94A3B8;
+  color: var(--text-secondary);
   line-height: 1.5;
   font-weight: 300;
   padding-bottom: var(--space-5);

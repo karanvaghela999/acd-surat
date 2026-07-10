@@ -4,7 +4,7 @@ import styles from "./Hero.module.css";
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
-      {/* Full background image with custom blend overlay */}
+      {/* Full background image with overlay */}
       <div className={styles.imageWrapper}>
         <Image
           src="/hero-image.png"
@@ -18,35 +18,45 @@ export default function Hero() {
         <div className={styles.overlay} />
       </div>
 
-      {/* Main Hero Content - Elevated Layout */}
+      {/* Main Hero Content */}
       <div className={`container ${styles.container}`}>
-        <div className={styles.mainContent}>
-          <h1 className={styles.title}>
-            A one-day conference for the next generation of cloud innovators
-          </h1>
-          
-          <p className={styles.subtitle}>
-            Learn from AWS Heroes, Community Builders, industry experts, and fellow developers through technical talks, hands-on workshops, and networking designed to help you build what&apos;s next.
-          </p>
+        {/* Logo */}
+        <div className={styles.logoWrapper}>
+          <Image
+            src="/AWS_UG _Suart.png"
+            alt="AWS User Groups Surat"
+            width={280}
+            height={140}
+            priority
+            className={styles.logo}
+          />
         </div>
 
-        {/* Bottom Info & Action Bar (matching screenshot layout) */}
-        <div className={styles.bottomBar}>
-          <div className={styles.metaInfo}>
-            <span className={styles.metaItem}>SURAT, INDIA</span>
-            <span className={styles.metaItem}>OCTOBER 3, 2026</span>
+        {/* Event Title */}
+        <h1 className={styles.title}>
+          <span className={styles.titleLine}>AWS Community Day</span>
+          <span className={styles.titleAccent}>Surat 2026</span>
+        </h1>
+
+        {/* Date & Location — Prominent */}
+        <div className={styles.eventMeta}>
+          <div className={styles.metaBlock}>
+            <span className={styles.metaLabel}>Date</span>
+            <span className={styles.metaValue}>October 3, 2026</span>
           </div>
-          
-          <div className={styles.actionCol}>
-            <a
-              href="#"
-              className={`btn ${styles.heroCta}`}
-            >
-              GET TICKETS
-              <span className={styles.chevron}>&gt;</span>
-            </a>
+          <div className={styles.metaDivider} />
+          <div className={styles.metaBlock}>
+            <span className={styles.metaLabel}>Location</span>
+            <span className={styles.metaValue}>Surat, India</span>
           </div>
         </div>
+
+        {/* Tagline */}
+        <p className={styles.tagline}>
+          A one-day conference for the next generation of cloud innovators.
+          Learn from AWS Heroes, Community Builders &amp; industry experts.
+        </p>
+
       </div>
     </section>
   );

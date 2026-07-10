@@ -3,9 +3,9 @@
    ====================================== */
 
 .section {
-  background-color: var(--surface-dark, #23303E);
+  background-color: var(--bg-primary);
   padding: var(--space-12) 0;
-  border-bottom: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-light);
   overflow: hidden;
 }
 
@@ -28,7 +28,7 @@
   font-family: var(--font-heading);
   font-size: var(--text-4xl);
   font-weight: 500;
-  color: #FAFAFA;
+  color: #23303E;
   letter-spacing: -0.03em;
 }
 
@@ -39,7 +39,7 @@
 .subtitle {
   font-family: var(--font-body);
   font-size: var(--text-lg);
-  color: #94A3B8;
+  color: var(--text-secondary);
 }
 
 /* Timeline Container */
@@ -106,12 +106,13 @@
 }
 
 .timelineContent {
-  background-color: #1A2533;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-lg);
   padding: var(--space-4) var(--space-5);
   position: relative;
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] .timelineContent {
@@ -133,7 +134,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: #1A2533;
+  background-color: var(--bg-primary);
   border: 3px solid #FF9900;
   transform: translate(-50%, -50%);
   z-index: 3;
@@ -176,8 +177,12 @@
   font-family: var(--font-heading);
   font-size: var(--text-base);
   font-weight: 500;
-  color: #FAFAFA;
+  color: #23303E;
   line-height: 1.2;
+}
+
+[data-theme="dark"] .itemTitle {
+  color: #FAFAFA;
 }
 
 /* Styling based on type */

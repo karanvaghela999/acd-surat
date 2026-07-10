@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Tickets from "@/components/Tickets";
 import Sponsors from "@/components/Sponsors";
+import Speakers from "@/components/Speakers";
 import Agenda from "@/components/Agenda";
 import Gallery from "@/components/Gallery";
 import FAQ from "@/components/FAQ";
@@ -20,6 +21,7 @@ export default function Home() {
         <About />
         <Tickets />
         <Sponsors />
+        <Speakers />
         <Agenda />
         <Gallery />
         <FAQ />

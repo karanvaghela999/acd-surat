@@ -1,15 +1,14 @@
 .gallery {
   position: relative;
-  background-color: var(--bg-primary); /* Light background to alternate with Agenda */
-  color: #23303E;
+  background-color: #23303E;
+  color: #FAFAFA;
   padding: var(--space-16) 0;
   overflow: hidden;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-dark);
 }
 
 [data-theme="dark"] .gallery {
-  background-color: #23303E;
-  color: #FAFAFA;
+  background-color: #1A2533;
 }
 
 .linesOverlay {
@@ -33,19 +32,15 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  color: #3D5A3A; /* Darker green for light mode */
-  letter-spacing: 0.05em;
-}
-
-[data-theme="dark"] .sectionLabel {
   color: #D1E5CD;
+  letter-spacing: 0.05em;
 }
 
 .title {
   font-family: var(--font-heading);
   font-size: var(--text-3xl);
   font-weight: 500;
-  color: #23303E;
+  color: #FAFAFA;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
@@ -91,13 +86,8 @@
   height: 200px;
   flex-shrink: 0;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-[data-theme="dark"] .imageCard {
-  border-color: rgba(255, 255, 255, 0.1);
   background-color: rgba(0, 0, 0, 0.2);
 }
 

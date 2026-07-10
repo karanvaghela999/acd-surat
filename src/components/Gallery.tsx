@@ -15,7 +15,7 @@ export default function Gallery() {
       {/* Decorative Blueprint Lines in Background */}
       <div className={styles.linesOverlay}>
         <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.05 }}>
-          <path d="M0 100h2000M0 300h2000M0 500h2000M300 0v2000M800 0v2000" stroke="#23303E" strokeWidth="1" />
+          <path d="M0 100h2000M0 300h2000M0 500h2000M300 0v2000M800 0v2000" stroke="#FAFAFA" strokeWidth="1" />
         </svg>
       </div>
 
