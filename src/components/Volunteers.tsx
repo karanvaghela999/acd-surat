@@ -25,8 +25,8 @@ const VOLUNTEERS = [
     linkedin: "https://linkedin.com/in/niravpancholi",
   },
   {
-    name: "Abhishek",
-    role: "AWS Cloud Architect",
+    name: "Abhishek Monpara",
+    role: "AWS Cloud Architect at CloudGate",
     image: "/volunteers/img4.jpeg",
     initials: "V4",
     linkedin: "https://www.linkedin.com/in/itsabhishekm/",
@@ -66,6 +66,13 @@ const VOLUNTEERS = [
     initials: "V9",
     linkedin: "https://www.linkedin.com/in/kirtan-goswami",
   },
+  {
+    name: "Arpit Rai",
+    role: "Graphics Designer",
+    image: "/volunteers/img10.jpeg",
+    initials: "V10",
+    linkedin: "https://www.linkedin.com/in/arpitrai21/",
+  }
 ];
 
 export default function Volunteers() {
