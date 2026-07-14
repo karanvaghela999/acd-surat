@@ -1,3 +1,7 @@
+/* ======================================
+   About Section — Extraordinary Cards
+   ====================================== */
+
 .about {
   position: relative;
   background-color: var(--bg-primary);
@@ -10,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-10);
   width: 100%;
 }
 
@@ -35,95 +39,280 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--border-dark);
-  background-color: transparent;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.04);
   color: var(--text-primary);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
 .arrowBtn:hover {
-  background-color: var(--surface-dark);
-  color: var(--text-on-dark);
+  background-color: rgba(255, 153, 0, 0.12);
+  border-color: rgba(255, 153, 0, 0.4);
+  color: #FF9900;
+  transform: scale(1.05);
 }
 
-/* Scroll Container */
+/* ---- Scroll Container ---- */
 .scrollContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: var(--space-3);
+  gap: var(--space-5);
   overflow-x: auto;
-  padding-bottom: var(--space-4);
+  padding-bottom: var(--space-6);
+  padding-top: 4px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
+/* ---- Card Outer (holds animated border) ---- */
 .card {
-  flex: 0 0 280px;
-  aspect-ratio: 1; /* Aspect-square cards */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: var(--space-6);
-  background-color: var(--surface-dark);
-  color: var(--text-on-dark);
-  border: 1px solid var(--border-dark);
+  flex: 0 0 300px;
+  height: 360px;
+  position: relative;
+  border-radius: 28px;
+  padding: 2px;
   scroll-snap-align: start;
-  transition: transform var(--transition-fast);
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+  cursor: default;
 }
 
 @media (min-width: 640px) {
   .card {
-    flex: 0 0 320px;
-    padding: var(--space-8);
+    flex: 0 0 340px;
+    height: 380px;
   }
 }
 
 @media (min-width: 1024px) {
   .card {
-    flex: 0 0 380px;
-    padding: var(--space-10);
+    flex: 0 0 360px;
+    height: 400px;
   }
 }
 
-.card:hover {
-  transform: translateY(-2px);
+/* ---- Animated gradient border ---- */
+.cardBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    transparent 0%,
+    var(--accent) 12%,
+    transparent 24%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  animation: rotateBorder 4s linear infinite;
 }
 
-.iconWrapper {
-  color: var(--text-on-dark);
+.card:hover .cardBorder {
+  opacity: 1;
 }
 
-.cardBody {
+@keyframes rotateBorder {
+  0%   { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ---- Glass inner surface ---- */
+.cardInner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  border-radius: 26px;
+  padding: 32px 28px 28px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  justify-content: space-between;
+  background: linear-gradient(
+    165deg,
+    rgba(26, 37, 51, 0.95) 0%,
+    rgba(15, 23, 36, 0.98) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover .cardInner {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ---- Mouse-following glow ---- */
+.cardGlow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  top: var(--glow-y, 50%);
+  left: var(--glow-x, 50%);
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.card:hover .cardGlow {
+  opacity: 0.15;
+}
+
+/* ---- Large number watermark ---- */
+.cardNumber {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  font-family: var(--font-heading);
+  font-size: 120px;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  z-index: 0;
+  transition: color 0.4s ease;
+  user-select: none;
+}
+
+.card:hover .cardNumber {
+  color: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+/* ---- Top area (icon + accent line) ---- */
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.iconBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 15%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 5%, transparent) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.card:hover .iconBadge {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 25%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.accentLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 30%, transparent) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .accentLine {
+  opacity: 1;
+}
+
+/* ---- Card content ---- */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .cardTitle {
   font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: 500;
-  color: var(--text-on-dark);
-  line-height: 1.05;
+  font-size: 22px;
+  font-weight: 600;
+  color: #F1F5F9;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardTitle {
+  color: #FFFFFF;
 }
 
 .cardDesc {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
-  color: var(--text-on-dark-muted);
-  line-height: 1.4;
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.6;
   font-weight: 300;
+  transition: color 0.3s ease;
 }
 
-/* Scroll Progress Bar */
+.card:hover .cardDesc {
+  color: #94A3B8;
+}
+
+/* ---- Arrow indicator ---- */
+.cardArrow {
+  position: absolute;
+  top: 32px;
+  right: 28px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.15);
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover .cardArrow {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  transform: translate(2px, -2px);
+}
+
+/* ---- Scroll Progress Bar ---- */
 .progressBarWrapper {
   margin-top: var(--space-8);
   width: 80px;
   height: 4px;
-  background-color: var(--border-light);
+  background-color: rgba(255, 255, 255, 0.08);
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -134,7 +323,7 @@
 .progressBar {
   width: 30px;
   height: 100%;
-  background-color: var(--text-primary);
+  background: linear-gradient(90deg, #FF9900, #FF5500);
   border-radius: 2px;
   position: absolute;
   top: 0;

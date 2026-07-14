@@ -22,7 +22,12 @@ export default function Hero() {
       {/* Main Hero Content */}
       <div className={`container ${styles.container}`}>
         {/* Logo */}
-        <div className={styles.logoWrapper}>
+        <a
+          href="https://www.meetup.com/surat-aws-user-group/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.logoWrapper}
+        >
           <Image
             src="/AWS_UG _Suart.png"
             alt="AWS User Groups Surat"
@@ -31,7 +36,7 @@ export default function Hero() {
             priority
             className={styles.logo}
           />
-        </div>
+        </a>
 
         {/* Event Title */}
         <h1 className={styles.title}>

@@ -27,7 +27,7 @@ const FAQS = [
   },
   {
     q: "Will food and refreshments be provided?",
-    a: "Yes. Refreshments and meals (if applicable) will be communicated closer to the event date.",
+    a: "Yes. Breakfast, lunch, and hi-tea will be provided to all attendees.",
   },
   {
     q: "Where will the event take place?",

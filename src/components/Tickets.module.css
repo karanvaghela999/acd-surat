@@ -1,5 +1,5 @@
 /* ======================================
-   Tickets Section — Boarding Pass Design
+   Tickets Section — Premium Design
    ====================================== */
 
 .section {
@@ -8,10 +8,32 @@
 
 /* ---- Ticket Zone ---- */
 .ticketZone {
-  background-color: var(--surface-dark);
+  background: linear-gradient(180deg, #0F1724 0%, #131D2E 100%);
   padding: var(--space-20) 0;
   border-bottom: 1px solid var(--border-dark);
   color: var(--text-on-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient background glow */
+.ticketZone::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 153, 0, 0.06) 0%, transparent 70%);
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: ticketGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes ticketGlow {
+  0%   { opacity: 0.5; transform: translateX(-50%) scale(1); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.2); }
 }
 
 .headerBlock {
@@ -19,14 +41,17 @@
   flex-direction: column;
   gap: var(--space-3);
   max-width: 560px;
-  margin-bottom: var(--space-16);
+  margin: 0 auto var(--space-16);
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
   font-family: var(--font-heading);
   font-size: var(--text-4xl);
-  font-weight: 500;
-  color: #FAFAFA;
+  font-weight: 600;
+  color: #F1F5F9;
   letter-spacing: -0.03em;
 }
 
@@ -39,87 +64,139 @@
 .subtitle {
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: #DDECDA;
+  color: #64748B;
   font-weight: 300;
   line-height: 1.6;
 }
 
-/* ---- Boarding Pass Cards Track ---- */
+/* ---- Cards Track (centered 3-col) ---- */
 .cardTrack {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-5);
+  gap: var(--space-6);
   max-width: 400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
   .cardTrack {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 800px;
+    max-width: 780px;
   }
 }
 
 @media (min-width: 1100px) {
   .cardTrack {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 1140px;
+    max-width: 1080px;
   }
 }
 
-/* ---- Individual Boarding Pass ---- */
+/* ---- Boarding Pass Card ---- */
 .boardingPass {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #2D3C4E;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  background: linear-gradient(165deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 36, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
   overflow: visible;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
 }
 
 .boardingPass:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Highlighted (Popular) card */
+/* ---- Highlighted (Popular) card ---- */
 .highlighted {
-  border-color: #FF9900;
-  background-color: #1A2533;
-  color: var(--text-on-dark);
+  border-color: rgba(255, 153, 0, 0.4);
+  background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(20, 15, 5, 0.95) 100%);
+  transform: scale(1.03);
+}
+
+@media (min-width: 1100px) {
+  .highlighted {
+    transform: scale(1.05);
+  }
 }
 
 .highlighted:hover {
   border-color: #FF9900;
-  box-shadow: 0 16px 48px rgba(255, 153, 0, 0.15);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 153, 0, 0.12);
+  transform: scale(1.05) translateY(-8px);
+}
+
+@media (min-width: 1100px) {
+  .highlighted:hover {
+    transform: scale(1.07) translateY(-8px);
+  }
+}
+
+
+/* Shimmer sweep on hover */
+.boardingPass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.04) 50%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.boardingPass:hover::after {
+  animation: shimmer 1s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0%   { opacity: 1; transform: translateX(-100%); }
+  100% { opacity: 0; transform: translateX(100%); }
 }
 
 /* ---- Tag Ribbon ---- */
 .tag {
   position: absolute;
   top: -12px;
-  right: 16px;
+  right: 20px;
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 4px 12px;
-  background-color: var(--surface-dark);
-  color: var(--text-on-dark);
+  padding: 5px 14px;
+  background-color: #1E293B;
+  color: #94A3B8;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 2;
 }
 
 .tagHighlight {
-  background-color: #FF9900;
-  color: #23303E;
+  background: linear-gradient(135deg, #FF9900, #F97316);
+  color: #0F1724;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+  animation: tagPulse 2s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3); }
+  50%      { box-shadow: 0 4px 20px rgba(255, 153, 0, 0.5); }
 }
 
 /* ---- Stub (Top section) ---- */
 .stub {
-  padding: var(--space-6) var(--space-5);
+  padding: 28px 24px 20px;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -136,23 +213,19 @@
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #94A3B8;
+  color: #64748B;
 }
 
 .highlighted .stubLabel {
-  color: var(--text-on-dark-muted);
+  color: #94A3B8;
 }
 
 .passName {
   font-family: var(--font-heading);
   font-size: var(--text-xl);
   font-weight: 600;
-  color: #FAFAFA;
+  color: #F1F5F9;
   letter-spacing: -0.02em;
-}
-
-.highlighted .passName {
-  color: var(--text-on-dark);
 }
 
 /* Price display */
@@ -166,24 +239,33 @@
   font-family: var(--font-heading);
   font-size: var(--text-xl);
   font-weight: 400;
-  color: #94A3B8;
+  color: #64748B;
 }
 
 .highlighted .priceCurrency {
-  color: var(--text-on-dark-muted);
+  color: #94A3B8;
 }
 
 .priceValue {
   font-family: var(--font-heading);
   font-size: var(--text-4xl);
-  font-weight: 500;
-  color: #D1E5CD;
+  font-weight: 600;
+  color: #CBD5E1;
   letter-spacing: -0.03em;
   line-height: 1;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .highlighted .priceValue {
   color: #FF9900;
+}
+
+.boardingPass:hover .priceValue {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.highlighted:hover .priceValue {
+  text-shadow: 0 0 24px rgba(255, 153, 0, 0.3);
 }
 
 /* ---- Perforation Divider ---- */
@@ -192,7 +274,8 @@
   align-items: center;
   position: relative;
   height: 24px;
-  margin: 0 -1px; /* bleed into card border */
+  margin: 0;
+  padding: 0 12px;
 }
 
 .perfCircleLeft,
@@ -200,38 +283,33 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: var(--surface-dark);
+  background-color: #0F1724;
   flex-shrink: 0;
   position: relative;
   z-index: 1;
 }
 
 .perfCircleLeft {
-  margin-left: -12px;
+  margin-left: -24px;
 }
 
 .perfCircleRight {
-  margin-right: -12px;
+  margin-right: -24px;
 }
 
 .perfLine {
   flex: 1;
   height: 0;
-  border-top: 2px dashed rgba(255, 255, 255, 0.12);
+  border-top: 2px dashed rgba(255, 255, 255, 0.08);
 }
 
 .highlighted .perfLine {
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.highlighted .perfCircleLeft,
-.highlighted .perfCircleRight {
-  background-color: var(--surface-dark);
+  border-color: rgba(255, 153, 0, 0.2);
 }
 
 /* ---- Pass Body (Perks) ---- */
 .passBody {
-  padding: var(--space-5);
+  padding: 20px 24px;
   flex: 1;
 }
 
@@ -248,12 +326,17 @@
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 300;
-  color: #94A3B8;
+  color: #64748B;
   line-height: 1.35;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.boardingPass:hover .perkItem {
+  color: #94A3B8;
 }
 
 .highlighted .perkItem {
-  color: var(--text-on-dark-muted);
+  color: #94A3B8;
 }
 
 .checkIcon {
@@ -261,7 +344,12 @@
   width: 15px;
   height: 15px;
   margin-top: 2px;
-  color: var(--accent-green);
+  color: #334155;
+  transition: color 0.3s ease;
+}
+
+.boardingPass:hover .checkIcon {
+  color: #0EA5E9;
 }
 
 .highlighted .checkIcon {
@@ -274,41 +362,45 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: var(--space-4) var(--space-5);
+  padding: 18px 24px;
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   text-decoration: none;
-  background-color: transparent;
-  color: #FAFAFA;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  background: rgba(255, 255, 255, 0.04);
+  color: #94A3B8;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0 0 24px 24px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .passBtn:hover {
-  background-color: #D1E5CD;
-  color: #23303E;
+  background: rgba(255, 255, 255, 0.08);
+  color: #F1F5F9;
 }
 
 .passBtnHighlight {
-  border-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-on-dark);
-  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 153, 0, 0.15);
+  color: #FF9900;
+  background: rgba(255, 153, 0, 0.06);
 }
 
 .passBtnHighlight:hover {
-  background-color: #FF9900;
-  color: #23303E;
+  background: #FF9900;
+  color: #0F1724;
+  box-shadow: 0 8px 24px rgba(255, 153, 0, 0.25);
 }
 
 .arrow {
-  transition: transform var(--transition-fast);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .passBtn:hover .arrow {
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 /* ==================================
@@ -378,12 +470,13 @@
   color: #FAFAFA;
   padding: var(--space-8) var(--space-6);
   border: 1px solid rgba(35, 48, 62, 0.15);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border-radius: 24px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 
 .patronCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .patronCard {
@@ -469,12 +562,13 @@
   text-decoration: none;
   background-color: #D1E5CD;
   color: #23303E;
+  border-radius: 14px;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .patronBtn:hover {
   background-color: #C2DAC2;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 [data-theme="dark"] .patronBtn {

@@ -17,7 +17,7 @@ const TICKETS = [
       "Afternoon lunch & hi-tea",
       "All sessions (subject to seat availability)",
       "Booth visits & networking",
-      "Super early bird exclusive goodies",
+      "Exciting goodies & swag",
     ],
   },
   {
@@ -32,7 +32,7 @@ const TICKETS = [
       "Afternoon lunch & hi-tea",
       "All sessions (subject to seat availability)",
       "Booth visits & networking",
-      "Early bird exclusive goodies",
+      "Exciting goodies & swag",
     ],
   },
   {
@@ -47,6 +47,7 @@ const TICKETS = [
       "Afternoon lunch & hi-tea",
       "All sessions (subject to seat availability)",
       "Booth visits & networking",
+      "Exciting goodies & swag",
     ],
   },
 ];
