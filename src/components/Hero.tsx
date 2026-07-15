@@ -23,7 +23,7 @@ export default function Hero() {
       <div className={`container ${styles.container}`}>
         {/* Logo */}
         <a
-          href="https://www.meetup.com/surat-aws-user-group/"
+          href="https://linktr.ee/awsugsurat"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.logoWrapper}

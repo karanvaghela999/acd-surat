@@ -22,7 +22,7 @@ const TICKETS = [
   },
   {
     name: "Early Bird",
-    price: "₹499",
+    price: "₹XXX",
     tag: "LIMITED",
     href: "#",
     highlight: false,
@@ -37,7 +37,7 @@ const TICKETS = [
   },
   {
     name: "Regular",
-    price: "₹599",
+    price: "₹XXX",
     tag: null,
     href: "#",
     highlight: false,
@@ -48,6 +48,22 @@ const TICKETS = [
       "All sessions (subject to seat availability)",
       "Booth visits & networking",
       "Exciting goodies & swag",
+    ],
+  },
+  {
+    name: "Diamond",
+    price: "₹XXX",
+    tag: "VIP",
+    href: "#",
+    highlight: false,
+    perks: [
+      "Welcome Kit",
+      "Morning breakfast",
+      "Afternoon lunch & hi-tea",
+      "All sessions (subject to seat availability)",
+      "Booth visits & networking",
+      "Special goodies & swag",
+      "Front-row reserved seating",
     ],
   },
 ];
@@ -130,14 +146,13 @@ export default function Tickets() {
                   </ul>
                 </div>
 
-                {/* CTA */}
-                <a
-                  href={ticket.href}
-                  className={`${styles.passBtn} ${ticket.highlight ? styles.passBtnHighlight : ""}`}
+                {/* CTA (Disabled as requested) */}
+                <button
+                  disabled
+                  className={`${styles.passBtn} ${styles.passBtnDisabled} ${ticket.highlight ? styles.passBtnHighlight : ""}`}
                 >
                   Get {ticket.name}
-                  <span className={styles.arrow}>→</span>
-                </a>
+                </button>
               </div>
             ))}
           </div>
