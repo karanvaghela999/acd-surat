@@ -14,7 +14,7 @@ const SILVER_SPONSORS = [
 ];
 
 export default function Sponsors() {
-  const partnerLink = "https://drive.google.com/file/d/1f0L8FCD_wxc7Z67H8CJUHhx2p7VRjLJp/view?usp=sharing";
+  const partnerLink = "https://drive.google.com/file/d/1mWPlF9lcDQdOX65H0hTVR2oqsKPIj55G/view?usp=drive_link";
 
   return (
     <section id="sponsors" className={`section ${styles.sponsors}`}>
