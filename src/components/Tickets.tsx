@@ -9,7 +9,7 @@ const TICKETS = [
     name: "Super Early Bird",
     price: "₹399",
     tag: "POPULAR",
-    href: "#",
+    href: "https://konfhub.com/acdsurat26",
     highlight: true,
     perks: [
       "Access to the conference on 3rd October 2026",
@@ -154,13 +154,25 @@ export default function Tickets() {
                   </ul>
                 </div>
 
-                {/* CTA (Disabled as requested) */}
-                <button
-                  disabled
-                  className={`${styles.passBtn} ${styles.passBtnDisabled} ${ticket.highlight ? styles.passBtnHighlight : ""}`}
-                >
-                  Get {ticket.name}
-                </button>
+                {/* CTA */}
+                {ticket.highlight ? (
+                  <a
+                    href={ticket.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.passBtn} ${styles.passBtnHighlight}`}
+                  >
+                    Get {ticket.name}
+                    <span className={styles.arrow}>→</span>
+                  </a>
+                ) : (
+                  <button
+                    disabled
+                    className={`${styles.passBtn} ${styles.passBtnDisabled}`}
+                  >
+                    Get {ticket.name}
+                  </button>
+                )}
               </div>
             ))}
           </div>
