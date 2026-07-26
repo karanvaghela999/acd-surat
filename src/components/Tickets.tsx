@@ -8,9 +8,10 @@ const TICKETS = [
   {
     name: "Super Early Bird",
     price: "₹399",
-    tag: "POPULAR",
-    href: "https://konfhub.com/acdsurat26",
-    highlight: true,
+    tag: "SOLD OUT",
+    href: "#",
+    highlight: false,
+    soldOut: true,
     perks: [
       "Access to the conference on 3rd October 2026",
       "Welcome Swag & Goodies",
@@ -24,10 +25,10 @@ const TICKETS = [
   },
   {
     name: "Early Bird",
-    price: "₹XXX",
-    tag: "LIMITED",
-    href: "#",
-    highlight: false,
+    price: "₹499",
+    tag: "POPULAR",
+    href: "https://konfhub.com/checkout/acdsurat26?ticketId=111598",
+    highlight: true,
     perks: [
       "Access to the conference on 3rd October 2026",
       "Welcome Swag & Goodies",
@@ -41,9 +42,9 @@ const TICKETS = [
   },
   {
     name: "Regular",
-    price: "₹XXX",
+    price: "₹599",
     tag: null,
-    href: "#",
+    href: "https://konfhub.com/checkout/acdsurat26?ticketId=111599",
     highlight: false,
     perks: [
       "Access to the conference on 3rd October 2026",
@@ -58,9 +59,9 @@ const TICKETS = [
   },
   {
     name: "Diamond",
-    price: "₹XXX",
+    price: "₹3,000",
     tag: "VIP",
-    href: "#",
+    href: "https://konfhub.com/checkout/acdsurat26?ticketId=114271",
     highlight: false,
     perks: [
       "Access to the conference on 3rd October 2026",
@@ -155,23 +156,23 @@ export default function Tickets() {
                 </div>
 
                 {/* CTA */}
-                {ticket.highlight ? (
-                  <a
-                    href={ticket.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${styles.passBtn} ${styles.passBtnHighlight}`}
-                  >
-                    Get {ticket.name}
-                    <span className={styles.arrow}>→</span>
-                  </a>
-                ) : (
+                {ticket.soldOut ? (
                   <button
                     disabled
                     className={`${styles.passBtn} ${styles.passBtnDisabled}`}
                   >
-                    Get {ticket.name}
+                    Sold Out
                   </button>
+                ) : (
+                  <a
+                    href={ticket.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.passBtn} ${ticket.highlight ? styles.passBtnHighlight : ""}`}
+                  >
+                    Get {ticket.name}
+                    <span className={styles.arrow}>→</span>
+                  </a>
                 )}
               </div>
             ))}
