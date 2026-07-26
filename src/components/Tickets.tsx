@@ -209,7 +209,9 @@ export default function Tickets() {
                 ))}
               </ul>
               <a
-                href="#"
+                href="https://konfhub.com/checkout/acdsurat26?ticketId=111598"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={styles.patronBtn}
               >
                 Support the Community
