@@ -54,7 +54,7 @@ export default function Speakers() {
           <p className={styles.ctaText}>
             Want to share your knowledge with the community?
           </p>
-          <a href="#" className={styles.ctaButton}>
+          <a href="#tickets" className={styles.ctaButton}>
             APPLY AS SPEAKER
             <span className={styles.ctaChevron}>&gt;</span>
           </a>

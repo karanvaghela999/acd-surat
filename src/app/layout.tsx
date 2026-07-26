@@ -76,9 +76,14 @@ const jsonLdEvent = {
   name: "AWS Community Day Surat 2026",
   description:
     "Join developers and builders for a day of technical talks, hands-on learning, and connections. Learn from AWS experts and peers shaping the future of cloud, AI, and DevOps.",
-  startDate: "2026-09-12",
+  url: "https://acd26.awsugsurat.com",
+  startDate: "2026-10-03",
+  endDate: "2026-10-03",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   eventStatus: "https://schema.org/EventScheduled",
+  image: [
+    "https://acd26.awsugsurat.com/hero-image.png",
+  ],
   location: {
     "@type": "Place",
     name: "Surat, Gujarat, India",
@@ -94,6 +99,22 @@ const jsonLdEvent = {
     name: "AWS User Group Surat",
     url: "https://www.meetup.com/aws-user-group-surat",
   },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Early Bird",
+      url: "https://acd26.awsugsurat.com/#tickets",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+    },
+    {
+      "@type": "Offer",
+      name: "Regular",
+      url: "https://acd26.awsugsurat.com/#tickets",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+    },
+  ],
 };
 
 const jsonLdFaq = {
