@@ -3,10 +3,10 @@ import ScrollReveal from "./ScrollReveal";
 import styles from "./Gallery.module.css";
 
 const IMAGES = [
-  { src: "/meetup-img/img1.jpeg", alt: "AWS User Group Surat Meetup", span: "normal" },
+  { src: "/meetup-img/img1.webp", alt: "AWS User Group Surat Meetup", span: "normal" },
   { src: "/meetup-img/img2.avif", alt: "AWS User Group Surat Meetup", span: "normal" },
-  { src: "/meetup-img/img3.jpeg", alt: "AWS User Group Surat Meetup", span: "normal" },
-  { src: "/meetup-img/img4.jpeg", alt: "AWS User Group Surat Meetup", span: "normal" },
+  { src: "/meetup-img/img3.webp", alt: "AWS User Group Surat Meetup", span: "normal" },
+  { src: "/meetup-img/img4.webp", alt: "AWS User Group Surat Meetup", span: "normal" },
 ];
 
 export default function Gallery() {

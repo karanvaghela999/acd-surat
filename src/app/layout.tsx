@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/hero-image.png",
+        url: "/hero-image.webp",
         width: 1200,
         height: 630,
         alt: "AWS Community Day Surat 2026",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "AWS Community Day Surat 2026",
     description:
       "Join developers and builders for a day of technical talks, hands-on learning, and connections.",
-    images: ["/hero-image.png"],
+    images: ["/hero-image.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ const jsonLdEvent = {
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   eventStatus: "https://schema.org/EventScheduled",
   image: [
-    "https://acd26.awsugsurat.com/hero-image.png",
+    "https://acd26.awsugsurat.com/hero-image.webp",
   ],
   location: {
     "@type": "Place",

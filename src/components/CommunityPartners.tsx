@@ -3,9 +3,9 @@ import ScrollReveal from "./ScrollReveal";
 import styles from "./CommunityPartners.module.css";
 
 const PARTNERS = [
-  { name: "SBG PPSU", logo: "/community-partners/sbg_ppsu.png" },
-  { name: "AWS UG Ahmedabad", logo: "/community-partners/ug_ahm.png" },
-  { name: "AWS UG Vadodara", logo: "/community-partners/ug_vad.png" },
+  { name: "SBG PPSU", logo: "/community-partners/sbg_ppsu.webp" },
+  { name: "AWS UG Ahmedabad", logo: "/community-partners/ug_ahm.webp" },
+  { name: "AWS UG Vadodara", logo: "/community-partners/ug_vad.webp" },
 ];
 
 // Repeat to ensure the track is wide enough for large screens, then duplicate for infinite scroll
