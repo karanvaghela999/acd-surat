@@ -1,13 +1,22 @@
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./Speakers.module.css";
 
 const SPEAKERS = [
-  { name: "Speaker 1", role: "Title / Company", topic: "Talk Topic TBA", initials: "S1" },
-  { name: "Speaker 2", role: "Title / Company", topic: "Talk Topic TBA", initials: "S2" },
-  { name: "Speaker 3", role: "Title / Company", topic: "Talk Topic TBA", initials: "S3" },
-  { name: "Speaker 4", role: "Title / Company", topic: "Talk Topic TBA", initials: "S4" },
-  { name: "Speaker 5", role: "Title / Company", topic: "Talk Topic TBA", initials: "S5" },
-  { name: "Speaker 6", role: "Title / Company", topic: "Talk Topic TBA", initials: "S6" },
+  {
+    name: "Shubham Purvwar",
+    role: "Analytics & AI Specialist Solution Architect @ AWS",
+    topic: "Talk Topic TBA",
+    initials: "SP",
+    image: "/speakers/shubham.jpeg",
+  },
+  {
+    name: "Dhaval Nagar",
+    role: "Founder @ Appgambit & AWS UG Surat Lead",
+    topic: "Talk Topic TBA",
+    initials: "DN",
+    image: "/speakers/dhaval.jpeg",
+  },
 ];
 
 export default function Speakers() {
@@ -32,6 +41,18 @@ export default function Speakers() {
                   <div className={styles.avatarFallback}>
                     <span>{speaker.initials}</span>
                   </div>
+                  {"image" in speaker && speaker.image && (
+                    <div className={styles.avatarImageWrapper}>
+                      <Image
+                        src={speaker.image}
+                        alt={speaker.name}
+                        fill
+                        quality={80}
+                        className={styles.avatarImage}
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
+                      />
+                    </div>
+                  )}
                   <div className={styles.avatarGlow} />
                 </div>
 

@@ -114,6 +114,19 @@
   user-select: none;
 }
 
+.avatarImageWrapper {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.avatarImage {
+  object-fit: cover;
+  object-position: center 15%;
+}
+
 .avatarGlow {
   position: absolute;
   inset: -3px;
