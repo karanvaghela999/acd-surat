@@ -8,7 +8,7 @@ export default function Hero() {
       {/* Full background image with overlay */}
       <div className={styles.imageWrapper}>
         <Image
-          src="/hero-image.png"
+          src="/hero-image.webp"
           alt="AWS Community Day Surat 2026 conference"
           fill
           priority
@@ -29,7 +29,7 @@ export default function Hero() {
           className={styles.logoWrapper}
         >
           <Image
-            src="/AWS_UG _Suart.png"
+            src="/AWS_UG _Suart.webp"
             alt="AWS User Groups Surat"
             width={280}
             height={140}

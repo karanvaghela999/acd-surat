@@ -98,7 +98,9 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#"
+              href="https://konfhub.com/checkout/acdsurat26?ticketId=111598"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`btn ${scrolled ? "btn-primary" : styles.heroBtn}`}
               style={{ fontSize: "11px", padding: "6px 12px" }}
             >

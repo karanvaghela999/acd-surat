@@ -93,7 +93,7 @@ export default function FooterCTA() {
               
               <div className={styles.action}>
                 <a
-                  href="#"
+                  href="#tickets"
                   className={`btn ${styles.registerBtn}`}
                 >
                   REGISTER NOW
