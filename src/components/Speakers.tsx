@@ -75,7 +75,12 @@ export default function Speakers() {
           <p className={styles.ctaText}>
             Want to share your knowledge with the community?
           </p>
-          <a href="mailto:awsugsurat@gmail.com" className={styles.ctaButton}>
+          <a
+            href="https://sessionize.com/aws-community-day-surat-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaButton}
+          >
             APPLY AS SPEAKER
             <span className={styles.ctaChevron}>&gt;</span>
           </a>
