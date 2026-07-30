@@ -6,14 +6,12 @@ const SPEAKERS = [
   {
     name: "Shubham Purvwar",
     role: "Analytics & AI Specialist Solution Architect @ AWS",
-    topic: "Talk Topic TBA",
     initials: "SP",
     image: "/speakers/shubham.jpeg",
   },
   {
     name: "Dhaval Nagar",
     role: "AWS Hero (Serverless), Founder @ Appgambit & AWS UG Surat Lead",
-    topic: "Talk Topic TBA",
     initials: "DN",
     image: "/speakers/dhaval.jpeg",
   },
@@ -60,10 +58,6 @@ export default function Speakers() {
                 <div className={styles.info}>
                   <h3 className={styles.name}>{speaker.name}</h3>
                   <p className={styles.role}>{speaker.role}</p>
-                  <div className={styles.topicTag}>
-                    <span className={styles.topicIcon}>💬</span>
-                    <span className={styles.topicText}>{speaker.topic}</span>
-                  </div>
                 </div>
               </div>
             </ScrollReveal>
