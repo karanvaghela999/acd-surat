@@ -12,7 +12,7 @@ const SPEAKERS = [
   },
   {
     name: "Dhaval Nagar",
-    role: "Founder @ Appgambit & AWS UG Surat Lead",
+    role: "AWS Hero (Serverless), Founder @ Appgambit & AWS UG Surat Lead",
     topic: "Talk Topic TBA",
     initials: "DN",
     image: "/speakers/dhaval.jpeg",
