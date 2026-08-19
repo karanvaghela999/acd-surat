@@ -26,9 +26,10 @@ const TICKETS = [
   {
     name: "Early Bird",
     price: "₹499",
-    tag: "POPULAR",
-    href: "https://konfhub.com/checkout/acdsurat26?ticketId=111598",
-    highlight: true,
+    tag: "SOLD OUT",
+    href: "#",
+    highlight: false,
+    soldOut: true,
     perks: [
       "Access to the conference on 3rd October 2026",
       "Welcome Swag & Goodies",
@@ -43,9 +44,9 @@ const TICKETS = [
   {
     name: "Regular",
     price: "₹599",
-    tag: null,
+    tag: "POPULAR",
     href: "https://konfhub.com/checkout/acdsurat26?ticketId=111599",
-    highlight: false,
+    highlight: true,
     perks: [
       "Access to the conference on 3rd October 2026",
       "Welcome Swag & Goodies",
