@@ -11,7 +11,7 @@ const EXPLORE_LINKS = [
 
 const COMMUNITY_LINKS = [
   { label: "Become a Speaker", href: "#" },
-  { label: "Become a Partner", href: "https://drive.google.com/file/d/1mWPlF9lcDQdOX65H0hTVR2oqsKPIj55G/view?usp=drive_link" },
+  { label: "Become a Partner", href: "https://drive.google.com/file/d/1mWPlF9lcDQdOX65H0hTVR2oqsKPIj55G/view?usp=sharing" },
   { label: "Contact Us", href: "mailto:awsugsurat@gmail.com" },
 ];
 

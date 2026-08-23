@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./Sponsors.module.css";
 
@@ -7,14 +8,14 @@ const GOLD_SPONSORS = [
   { name: "Gold Sponsor #2", tier: "Gold Tier" },
 ];
 const SILVER_SPONSORS = [
-  { name: "Silver Sponsor #1", tier: "Silver Tier" },
+  { name: "Narola Infotech", tier: "Silver Tier", logo: "/sponsors/narola.png", url: "https://www.narolainfotech.com/" },
   { name: "Silver Sponsor #2", tier: "Silver Tier" },
   { name: "Silver Sponsor #3", tier: "Silver Tier" },
   { name: "Silver Sponsor #4", tier: "Silver Tier" },
 ];
 
 export default function Sponsors() {
-  const partnerLink = "https://drive.google.com/file/d/1mWPlF9lcDQdOX65H0hTVR2oqsKPIj55G/view?usp=drive_link";
+  const partnerLink = "https://drive.google.com/file/d/1mWPlF9lcDQdOX65H0hTVR2oqsKPIj55G/view?usp=sharing";
 
   return (
     <section id="sponsors" className={`section ${styles.sponsors}`}>
@@ -88,16 +89,28 @@ export default function Sponsors() {
             {SILVER_SPONSORS.map((sponsor, idx) => (
               <a
                 key={idx}
-                href={partnerLink}
+                href={sponsor.url || partnerLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.bentoCell} ${styles.cellQuarter} ${styles.placeholderCell}`}
+                className={`${styles.bentoCell} ${styles.cellQuarter} ${sponsor.logo ? styles.filledCell : styles.placeholderCell}`}
               >
-                <div className={styles.cellContent}>
-                  <span className={styles.plusIcon}>+</span>
-                  <span className={styles.placeholderLabel}>Silver Sponsor Open</span>
-                  <span className={styles.partnerCall}>Click to Partner</span>
-                </div>
+                {sponsor.logo ? (
+                  <div className={styles.cellContent}>
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      width={180}
+                      height={80}
+                      className={styles.sponsorLogo}
+                    />
+                  </div>
+                ) : (
+                  <div className={styles.cellContent}>
+                    <span className={styles.plusIcon}>+</span>
+                    <span className={styles.placeholderLabel}>Silver Sponsor Open</span>
+                    <span className={styles.partnerCall}>Click to Partner</span>
+                  </div>
+                )}
               </a>
             ))}
           </div>
