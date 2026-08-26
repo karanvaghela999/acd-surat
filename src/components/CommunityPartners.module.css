@@ -51,67 +51,14 @@
   color: #94A3B8;
 }
 
-/* ---- Marquee (infinite horizontal scroll) ---- */
-.marqueeWrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-}
-
-.marqueeTrack {
+/* ---- Static Partners Grid ---- */
+.partnersGrid {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-6);
-  width: max-content;
-  animation: marquee 30s linear infinite;
 }
 
-.marqueeTrack:hover {
-  animation-play-state: paused;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Static grid for reduced-motion */
-.staticGrid {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marqueeWrapper {
-    display: none;
-  }
-  .staticGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
-  }
-  @media (min-width: 640px) {
-    .staticGrid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-}
 
 .partnerCard {
   display: flex;
@@ -124,6 +71,7 @@
   transition: transform var(--transition-fast), background-color var(--transition-fast);
   flex-shrink: 0;
   min-width: 160px;
+  text-decoration: none;
 }
 
 [data-theme="dark"] .partnerCard {

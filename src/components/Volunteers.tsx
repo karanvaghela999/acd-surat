@@ -33,7 +33,7 @@ const VOLUNTEERS = [
   },
   {
     name: "Mitul Sarvaiya",
-    role: "Director of AI @ Sarwaswa AI Labs",
+    role: "Founder, Principal Architect @ Sarvaswa AI Labs",
     image: "/volunteers/img5.webp",
     initials: "V5",
     linkedin: "https://www.linkedin.com/in/mitulsrv/",

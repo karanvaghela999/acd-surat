@@ -2,16 +2,18 @@ import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./Sponsors.module.css";
 
-const DIAMOND_SPONSOR = { name: "Diamond Sponsor", tier: "Diamond Tier" };
+const DIAMOND_SPONSOR = {
+  name: "Yanolja",
+  tier: "Diamond Tier",
+  logo: "/sponsors/yanolja.png",
+  url: "https://www.yanolja.com/",
+};
 const GOLD_SPONSORS = [
-  { name: "Gold Sponsor #1", tier: "Gold Tier" },
-  { name: "Gold Sponsor #2", tier: "Gold Tier" },
+  { name: "AppGambit", tier: "Gold Tier", logo: "/sponsors/appgambit.png", url: "https://www.appgambit.com/" },
 ];
 const SILVER_SPONSORS = [
   { name: "Narola Infotech", tier: "Silver Tier", logo: "/sponsors/narola.png", url: "https://www.narolainfotech.com/" },
-  { name: "Silver Sponsor #2", tier: "Silver Tier" },
-  { name: "Silver Sponsor #3", tier: "Silver Tier" },
-  { name: "Silver Sponsor #4", tier: "Silver Tier" },
+  { name: "Red & White", tier: "Silver Tier", logo: "/sponsors/redandwhite.webp", url: "https://www.rwskill.edu.in/" },
 ];
 
 export default function Sponsors() {
@@ -41,76 +43,76 @@ export default function Sponsors() {
           </div>
         </div>
 
-        {/* 1. Diamond Tier Slot */}
+        {/* 1. Diamond Tier — Highlighted */}
         <ScrollReveal className={styles.sponsorBlock}>
-          <h3 className={styles.blockTitle}>Diamond Sponsor</h3>
+          <h3 className={styles.blockTitle}>💎 Diamond Sponsor</h3>
           <div className={styles.bentoGrid}>
             <a
-              href={partnerLink}
+              href={DIAMOND_SPONSOR.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.bentoCell} ${styles.cellFull} ${styles.placeholderCell}`}
+              className={`${styles.bentoCell} ${styles.cellFull} ${styles.filledCell} ${styles.diamondCell}`}
             >
               <div className={styles.cellContent}>
-                <span className={styles.plusIcon}>+</span>
-                <span className={styles.placeholderLabel}>Diamond Sponsor Slot Open</span>
-                <span className={styles.partnerCall}>Click to Partner with us</span>
+                <Image
+                  src={DIAMOND_SPONSOR.logo}
+                  alt={DIAMOND_SPONSOR.name}
+                  width={260}
+                  height={120}
+                  className={styles.sponsorLogo}
+                />
               </div>
             </a>
           </div>
         </ScrollReveal>
 
-        {/* 2. Gold Tier Slots */}
+        {/* 2. Gold Tier */}
         <ScrollReveal className={`${styles.sponsorBlock} ${styles.prevBlock}`}>
           <h3 className={styles.blockTitle}>Gold Sponsors</h3>
           <div className={styles.bentoGrid}>
             {GOLD_SPONSORS.map((sponsor, idx) => (
               <a
                 key={idx}
-                href={partnerLink}
+                href={sponsor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.bentoCell} ${styles.cellHalf} ${styles.placeholderCell}`}
+                className={`${styles.bentoCell} ${styles.cellFull} ${styles.filledCell}`}
               >
                 <div className={styles.cellContent}>
-                  <span className={styles.plusIcon}>+</span>
-                  <span className={styles.placeholderLabel}>Gold Sponsor Slot Open</span>
-                  <span className={styles.partnerCall}>Click to Partner with us</span>
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    width={320}
+                    height={140}
+                    className={styles.sponsorLogo}
+                  />
                 </div>
               </a>
             ))}
           </div>
         </ScrollReveal>
 
-        {/* 3. Silver Tier Slots */}
+        {/* 3. Silver Tier */}
         <ScrollReveal className={`${styles.sponsorBlock} ${styles.prevBlock}`}>
           <h3 className={styles.blockTitle}>Silver Sponsors</h3>
           <div className={styles.bentoGrid}>
             {SILVER_SPONSORS.map((sponsor, idx) => (
               <a
                 key={idx}
-                href={sponsor.url || partnerLink}
+                href={sponsor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.bentoCell} ${styles.cellQuarter} ${sponsor.logo ? styles.filledCell : styles.placeholderCell}`}
+                className={`${styles.bentoCell} ${styles.cellHalf} ${styles.filledCell}`}
               >
-                {sponsor.logo ? (
-                  <div className={styles.cellContent}>
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      width={180}
-                      height={80}
-                      className={styles.sponsorLogo}
-                    />
-                  </div>
-                ) : (
-                  <div className={styles.cellContent}>
-                    <span className={styles.plusIcon}>+</span>
-                    <span className={styles.placeholderLabel}>Silver Sponsor Open</span>
-                    <span className={styles.partnerCall}>Click to Partner</span>
-                  </div>
-                )}
+                <div className={styles.cellContent}>
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    width={220}
+                    height={100}
+                    className={styles.sponsorLogo}
+                  />
+                </div>
               </a>
             ))}
           </div>
@@ -119,3 +121,4 @@ export default function Sponsors() {
     </section>
   );
 }
+

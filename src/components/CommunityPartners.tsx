@@ -3,13 +3,14 @@ import ScrollReveal from "./ScrollReveal";
 import styles from "./CommunityPartners.module.css";
 
 const PARTNERS = [
-  { name: "SBG PPSU", logo: "/community-partners/sbg_ppsu.webp" },
-  { name: "AWS UG Ahmedabad", logo: "/community-partners/ug_ahm.webp" },
-  { name: "AWS UG Vadodara", logo: "/community-partners/ug_vad.webp" },
+  { name: "AWS UG Ahmedabad", logo: "/community-partners/ug_ahm.webp", url: "https://www.linkedin.com/company/awsahmedabadcommunity" },
+  { name: "AWS UG Vadodara", logo: "/community-partners/ug_vad.webp", url: "https://www.linkedin.com/company/awsugbdq/" },
+  { name: "SBG PPSU", logo: "/community-partners/sbg_ppsu.webp", url: "https://www.linkedin.com/company/aws-student-builder-groups/" },
+  { name: "SBG Gujarat", logo: "/community-partners/sbg_guj.png", url: "https://www.linkedin.com/company/aws-student-builder-group-gujarat" },
+  { name: "eChai", logo: "/community-partners/echai.png", url: "https://echai.ventures/" },
+  { name: "SIC", logo: "/community-partners/sic.svg", url: "https://suratitcommunity.com/" },
+  { name: "FoF Surat", logo: "/community-partners/fofsurat.png", url: "https://friends.figma.com/surat/" },
 ];
-
-// Repeat to ensure the track is wide enough for large screens, then duplicate for infinite scroll
-const REPEATED_PARTNERS = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 
 export default function CommunityPartners() {
   return (
@@ -24,32 +25,24 @@ export default function CommunityPartners() {
           </p>
         </ScrollReveal>
 
-        <div className={styles.marqueeWrapper}>
-          <div className={styles.marqueeTrack}>
-            {/* Duplicate the list for seamless infinite scroll */}
-            {[...REPEATED_PARTNERS, ...REPEATED_PARTNERS].map((partner, i) => (
-              <div key={`${partner.name}-${i}`} className={styles.partnerCard}>
-                <div className={styles.logoWrapper}>
-                  <Image src={partner.logo} alt={partner.name} fill className={styles.partnerLogo} />
-                </div>
-                <span className={styles.partnerName}>{partner.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Static grid fallback for no-motion preference */}
-        <div className={styles.staticGrid}>
+        <div className={styles.partnersGrid}>
           {PARTNERS.map((partner) => (
-            <div key={partner.name} className={styles.partnerCard}>
+            <a
+              key={partner.name}
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.partnerCard}
+            >
               <div className={styles.logoWrapper}>
                 <Image src={partner.logo} alt={partner.name} fill className={styles.partnerLogo} />
               </div>
               <span className={styles.partnerName}>{partner.name}</span>
-            </div>
+            </a>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
