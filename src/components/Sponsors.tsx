@@ -3,13 +3,14 @@ import ScrollReveal from "./ScrollReveal";
 import styles from "./Sponsors.module.css";
 
 const DIAMOND_SPONSOR = {
-  name: "Yanolja",
+  name: "Yanolja Cloud Solution",
   tier: "Diamond Tier",
   logo: "/sponsors/yanolja.png",
-  url: "https://www.yanolja.com/",
+  url: "https://www.yanoljacloudsolution.com/",
 };
 const GOLD_SPONSORS = [
   { name: "AppGambit", tier: "Gold Tier", logo: "/sponsors/appgambit.png", url: "https://www.appgambit.com/" },
+  { name: "Sarvaswa AI Labs", tier: "Gold Tier", logo: "/sponsors/sarvaswa.png", url: "https://sarvaswa.ai/" },
 ];
 const SILVER_SPONSORS = [
   { name: "Narola Infotech", tier: "Silver Tier", logo: "/sponsors/narola.png", url: "https://www.narolainfotech.com/" },
@@ -17,7 +18,7 @@ const SILVER_SPONSORS = [
 ];
 
 export default function Sponsors() {
-  const partnerLink = "https://drive.google.com/file/d/1mWPlF9lcDQdOX65H0hTVR2oqsKPIj55G/view?usp=sharing";
+  const partnerLink = "https://drive.google.com/file/d/1mWPlF9lcDQdOX65H0hTVR2oqsKPIj55G/view?usp=drive_link";
 
   return (
     <section id="sponsors" className={`section ${styles.sponsors}`}>
@@ -45,7 +46,7 @@ export default function Sponsors() {
 
         {/* 1. Diamond Tier — Highlighted */}
         <ScrollReveal className={styles.sponsorBlock}>
-          <h3 className={styles.blockTitle}>💎 Diamond Sponsor</h3>
+          <h3 className={styles.blockTitle}>Diamond Sponsor</h3>
           <div className={styles.bentoGrid}>
             <a
               href={DIAMOND_SPONSOR.url}
@@ -76,7 +77,7 @@ export default function Sponsors() {
                 href={sponsor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.bentoCell} ${styles.cellFull} ${styles.filledCell}`}
+                className={`${styles.bentoCell} ${styles.cellHalf} ${styles.filledCell}`}
               >
                 <div className={styles.cellContent}>
                   <Image
