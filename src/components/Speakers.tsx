@@ -13,16 +13,18 @@ const KEYNOTE_SPEAKER = {
 
 const SPEAKERS = [
   {
-    name: "Shubham Purvwar",
+    name: "Shubham Purwar",
     role: "Analytics & AI Specialist Solution Architect @ AWS",
     initials: "SP",
     image: "/speakers/shubham.jpeg",
+    linkedin: "https://www.linkedin.com/in/shubham-purwar/",
   },
   {
     name: "Dhaval Nagar",
     role: "Founder @ Appgambit, AWS Serverless Hero",
     initials: "DN",
     image: "/speakers/dhaval.jpeg",
+    linkedin: "https://www.linkedin.com/in/dhavaln/",
   },
 ];
 
@@ -41,7 +43,13 @@ export default function Speakers() {
 
         {/* Opening Keynote — Featured */}
         <ScrollReveal className={styles.keynoteWrapper}>
-          <div className={styles.keynoteCard}>
+          <a
+            href={KEYNOTE_SPEAKER.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.keynoteCard}
+            aria-label={`View ${KEYNOTE_SPEAKER.name}'s LinkedIn profile`}
+          >
             <div className={styles.keynoteShimmer} />
 
             <div className={styles.keynoteAvatarWrapper}>
@@ -70,25 +78,20 @@ export default function Speakers() {
                 <span className={styles.keynoteName}>{KEYNOTE_SPEAKER.name}</span>
                 <span className={styles.keynoteRole}>{KEYNOTE_SPEAKER.role}</span>
               </div>
-              <a
-                href={KEYNOTE_SPEAKER.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.keynoteLinkedin}
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
-                </svg>
-                Connect on LinkedIn
-              </a>
             </div>
-          </div>
+          </a>
         </ScrollReveal>
 
         <div className={styles.grid}>
           {SPEAKERS.map((speaker, i) => (
             <ScrollReveal key={i} delay={1} className={styles.cardWrapper}>
-              <div className={styles.card}>
+              <a
+                href={speaker.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.card}
+                aria-label={`View ${speaker.name}'s LinkedIn profile`}
+              >
                 {/* Avatar */}
                 <div className={styles.avatarWrapper}>
                   <div className={styles.avatarFallback}>
@@ -114,7 +117,7 @@ export default function Speakers() {
                   <h3 className={styles.name}>{speaker.name}</h3>
                   <p className={styles.role}>{speaker.role}</p>
                 </div>
-              </div>
+              </a>
             </ScrollReveal>
           ))}
         </div>

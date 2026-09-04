@@ -60,6 +60,14 @@
   border: 1px solid rgba(255, 153, 0, 0.35);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.keynoteCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 153, 0, 0.6);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
 }
 
 @media (min-width: 768px) {
@@ -218,24 +226,6 @@
   font-size: var(--text-sm);
   color: #94A3B8;
   font-weight: 300;
-}
-
-.keynoteLinkedin {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-top: var(--space-1);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: #94A3B8;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.keynoteLinkedin:hover {
-  color: #FF9900;
 }
 
 /* ---- Grid ---- */

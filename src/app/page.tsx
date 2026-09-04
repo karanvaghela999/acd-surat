@@ -6,6 +6,7 @@ import Sponsors from "@/components/Sponsors";
 import Speakers from "@/components/Speakers";
 import Agenda from "@/components/Agenda";
 import Gallery from "@/components/Gallery";
+import Champions from "@/components/Champions";
 import FAQ from "@/components/FAQ";
 import Volunteers from "@/components/Volunteers";
 import CommunityPartners from "@/components/CommunityPartners";
@@ -24,6 +25,7 @@ export default function Home() {
         <Speakers />
         <Agenda />
         <Gallery />
+        <Champions />
         <FAQ />
         <Volunteers />
         <CommunityPartners />
