@@ -26,6 +26,34 @@ const SPEAKERS = [
     image: "/speakers/dhaval.jpeg",
     linkedin: "https://www.linkedin.com/in/dhavaln/",
   },
+  {
+    name: "Aman Gupta",
+    role: "Sr. Cloud Engineer (AI/ML) @ AWS",
+    initials: "AG",
+    image: "/speakers/aman.jpeg",
+    linkedin: "https://www.linkedin.com/in/amangupta53/",
+  },
+  {
+    name: "Udit Parikh",
+    role: "Sr. Cloud Engineer @ AWS",
+    initials: "UP",
+    image: "/speakers/udit.png",
+    linkedin: "https://www.linkedin.com/in/parikhudit/",
+  },
+  {
+    name: "Krutarth Rindani",
+    role: "Sr DevOps Engineer @ McAfee - 6x Certified",
+    initials: "KR",
+    image: "/speakers/krutarth.jpeg",
+    linkedin: "https://in.linkedin.com/in/krutarth-rindani-106167104",
+  },
+  {
+    name: "Ashish Gajjar",
+    role: "MTS - eInfochips, an Arrow company",
+    initials: "AG",
+    image: "/speakers/ashish.jpeg",
+    linkedin: "https://www.linkedin.com/in/gajjarashish/",
+  },
 ];
 
 export default function Speakers() {
