@@ -10,6 +10,7 @@ const PARTNERS = [
   { name: "eChai", logo: "/community-partners/echai.png", url: "https://echai.ventures/" },
   { name: "SIC", logo: "/community-partners/sic.svg", url: "https://suratitcommunity.com/" },
   { name: "FoF Surat", logo: "/community-partners/fofsurat.png", url: "https://friends.figma.com/surat/" },
+  { name: "Elastic User Group Gujarat", logo: "/community-partners/elastic.png", url: "https://community.elastic.co/gujarat/" },
 ];
 
 export default function CommunityPartners() {

@@ -11,6 +11,14 @@ const CHAMPIONS = [
     image: "/diamondtickets/ghansyam.jpg",
   },
   {
+    name: "Harshil Soni",
+    role: "Module Lead @ HGS",
+    tier: "patron" as const,
+    initials: "HS",
+    image: "/diamondtickets/harshil.png",
+    linkedin: "https://www.linkedin.com/in/harshil-soni-413775119/",
+  },
+  {
     name: "Hiren Samtani",
     role: "Founder & Additional Director, AlmanacInc Private Limited",
     tier: "diamond" as const,
@@ -38,34 +46,47 @@ export default function Champions() {
         </ScrollReveal>
 
         <div className={styles.grid}>
-          {CHAMPIONS.map((person, i) => (
-            <ScrollReveal key={i} delay={1} className={styles.cardWrapper}>
-              <div className={`${styles.card} ${styles[person.tier]}`}>
-                <div className={styles.avatarWrapper}>
-                  <div className={styles.avatarFallback}>
-                    <span>{person.initials}</span>
+          {CHAMPIONS.map((person, i) => {
+            const CardTag = person.linkedin ? "a" : "div";
+            return (
+              <ScrollReveal key={i} delay={1} className={styles.cardWrapper}>
+                <CardTag
+                  className={`${styles.card} ${styles[person.tier]}`}
+                  {...(person.linkedin
+                    ? {
+                        href: person.linkedin,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        "aria-label": `View ${person.name}'s LinkedIn profile`,
+                      }
+                    : {})}
+                >
+                  <div className={styles.avatarWrapper}>
+                    <div className={styles.avatarFallback}>
+                      <span>{person.initials}</span>
+                    </div>
+                    <div className={styles.avatarImageWrapper}>
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        fill
+                        quality={80}
+                        className={styles.avatarImage}
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
+                      />
+                    </div>
                   </div>
-                  <div className={styles.avatarImageWrapper}>
-                    <Image
-                      src={person.image}
-                      alt={person.name}
-                      fill
-                      quality={80}
-                      className={styles.avatarImage}
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
-                    />
+
+                  <span className={styles.badge}>{TIER_LABEL[person.tier]}</span>
+
+                  <div className={styles.info}>
+                    <h3 className={styles.name}>{person.name}</h3>
+                    <p className={styles.role}>{person.role}</p>
                   </div>
-                </div>
-
-                <span className={styles.badge}>{TIER_LABEL[person.tier]}</span>
-
-                <div className={styles.info}>
-                  <h3 className={styles.name}>{person.name}</h3>
-                  <p className={styles.role}>{person.role}</p>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+                </CardTag>
+              </ScrollReveal>
+            );
+          })}
         </div>
 
         {/* CTA */}
