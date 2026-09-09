@@ -151,15 +151,16 @@
   margin-top: 3rem;
 }
 
-/* Filled sponsor cell (has logo) */
+/* Filled sponsor cell (has logo) — always white so every logo (including
+   transparent-background PNGs) reads correctly in both themes */
 .filledCell {
-  background-color: var(--bg-secondary);
+  background-color: #FFFFFF;
   border: 1px solid var(--border-light);
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .filledCell:hover {
-  background-color: var(--bg-primary);
+  background-color: #F5F5F5;
   transform: scale(1.02);
 }
 
