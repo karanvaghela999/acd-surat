@@ -12,7 +12,7 @@ const GOLD_SPONSORS = [
   { name: "AppGambit", tier: "Gold Tier", logo: "/sponsors/appgambit.png", url: "https://www.appgambit.com/" },
   { name: "Sarvaswa AI Labs", tier: "Gold Tier", logo: "/sponsors/sarvaswa.png", url: "https://sarvaswa.ai/" },
   { name: "CirrOps", tier: "Gold Tier", logo: "/sponsors/cirops.jpeg", url: "https://cirrops.in/" },
-  { name: "Vartalaap", tier: "Gold Tier", logo: "/sponsors/vartalaap.png", url: "https://www.app.vartalaap.io/" },
+  { name: "Vartalaap", tier: "Gold Tier", logo: "/sponsors/vartalaap.png", url: "https://vartalaap.io/" },
 ];
 const SILVER_SPONSORS = [
   { name: "Narola Infotech", tier: "Silver Tier", logo: "/sponsors/narola.png", url: "https://www.narolainfotech.com/" },
