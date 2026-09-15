@@ -31,7 +31,21 @@ const FAQS = [
   },
   {
     q: "Where will the event take place?",
-    a: "AWS Community Day Surat 2026 will be hosted in Surat. Venue details and directions will be shared with registered attendees.",
+    a: (
+      <>
+        AWS Community Day Surat 2026 will be hosted at La Fountain – The Food
+        Fair, Surat.{" "}
+        <a
+          href="https://maps.app.goo.gl/VXxF26jYLNTEG5YLA"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.inlineLink}
+        >
+          Get directions
+        </a>
+        .
+      </>
+    ),
   },
   {
     q: "How can I stay updated?",

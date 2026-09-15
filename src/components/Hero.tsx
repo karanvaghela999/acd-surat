@@ -53,7 +53,14 @@ export default function Hero() {
           <div className={styles.metaDivider} />
           <div className={styles.metaBlock}>
             <span className={styles.metaLabel}>Location</span>
-            <span className={styles.metaValue}>Surat, India</span>
+            <a
+              href="https://maps.app.goo.gl/VXxF26jYLNTEG5YLA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.metaValue}
+            >
+              La Fountain, Surat
+            </a>
           </div>
         </div>
 
