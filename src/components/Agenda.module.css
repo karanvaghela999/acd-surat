@@ -1,5 +1,5 @@
 /* ======================================
-   Agenda Section — Clean Vertical Layout
+   Agenda Section — Grouped by Day-part
    ====================================== */
 
 .section {
@@ -60,227 +60,62 @@
   font-weight: 300;
 }
 
-/* ---- Timeline wrapper ---- */
-.timeline {
+/* ---- Schedule wrapper ---- */
+.schedule {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: var(--space-12);
   z-index: 1;
 }
 
-/* Traveling light pulse down the rail */
-.timeline::after {
-  content: '';
-  position: absolute;
-  left: 119px; /* 100px time col + half of 40px rail */
-  width: 2px;
-  height: 80px;
-  background: linear-gradient(180deg, transparent, #FF9900, transparent);
-  top: 0;
-  z-index: 3;
-  animation: travelDown 6s linear infinite;
-  pointer-events: none;
-  border-radius: 1px;
+/* ---- Day-part block ---- */
+.periodHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
-@media (min-width: 640px) {
-  .timeline::after {
-    left: 163px; /* 140px time col + half of 48px rail */
-  }
+.periodLabel {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: #F1F5F9;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
 }
 
-@keyframes travelDown {
-  0%   { top: -80px; opacity: 0; }
-  5%   { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+.periodRule {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* ---- Row (time | rail | content) ---- */
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Row ---- */
 .row {
   display: grid;
-  grid-template-columns: 100px 40px 1fr;
-  align-items: start;
-  min-height: 72px;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.rowVisible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (min-width: 640px) {
-  .row {
-    grid-template-columns: 140px 48px 1fr;
-  }
-}
-
-/* ---- Time block ---- */
-.timeBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-top: 18px;
-  padding-right: 0;
-  gap: 0;
-  transition: transform 0.3s ease;
-}
-
-.row:hover .timeBlock {
-  transform: translateX(-4px);
-}
-
-.timeStart {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 600;
-  color: #CBD5E1;
-  line-height: 1.2;
-  transition: color 0.3s ease;
-}
-
-.row:hover .timeStart {
-  color: var(--row-accent);
-}
-
-.timeSep {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: #475569;
-  line-height: 1.2;
-}
-
-.timeEnd {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 400;
-  color: #64748B;
-  line-height: 1.2;
-}
-
-/* ---- Center rail ---- */
-.rail {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 130px 1fr auto;
   align-items: center;
+  gap: var(--space-5);
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   position: relative;
-  height: 100%;
-  min-height: inherit;
+  transition: background-color 0.25s ease;
 }
 
-/* Continuous vertical line behind all dots */
-.rail::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(51, 65, 85, 0.6) 0%, rgba(51, 65, 85, 0.3) 100%);
+.rows > .row:last-child {
+  border-bottom: none;
 }
 
-.row:first-child .rail::before {
-  top: 24px;
-}
-
-.row:last-child .rail::before {
-  bottom: calc(100% - 30px);
-}
-
-.railDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #1E293B;
-  border: 2.5px solid var(--row-accent, #475569);
-  position: relative;
-  z-index: 2;
-  margin-top: 20px;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-/* Persistent subtle pulse ring on dots */
-.railDot::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1.5px solid var(--row-accent, #475569);
-  opacity: 0;
-  animation: dotPulse 3s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% { opacity: 0; transform: scale(0.8); }
-  50%      { opacity: 0.3; transform: scale(1.2); }
-}
-
-.row:hover .railDot {
-  transform: scale(1.5);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--row-accent) 20%, transparent),
-              0 0 20px color-mix(in srgb, var(--row-accent) 35%, transparent);
-  background: var(--row-accent);
-}
-
-.row:hover .railDot::after {
-  animation: dotPulseHover 1s ease-in-out infinite;
-}
-
-@keyframes dotPulseHover {
-  0%, 100% { opacity: 0; transform: scale(1); }
-  50%      { opacity: 0.5; transform: scale(1.6); }
-}
-
-/* ---- Content card ---- */
-.content {
-  padding: 10px 0;
-}
-
-.contentInner {
-  padding: 14px 20px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  position: relative;
-  overflow: hidden;
-  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
-}
-
-/* Shimmer sweep on hover */
-.contentInner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
-  transition: none;
-  pointer-events: none;
-}
-
-.row:hover .contentInner::before {
-  animation: shimmerSweep 0.8s ease-out forwards;
-}
-
-@keyframes shimmerSweep {
-  0%   { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* Accent glow line at left edge */
-.contentInner::after {
+.row::before {
   content: '';
   position: absolute;
   top: 20%;
@@ -291,25 +126,59 @@
   background: var(--row-accent);
   opacity: 0;
   transform: scaleY(0);
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.row:hover .contentInner::after {
+.row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.row:hover::before {
   opacity: 1;
   transform: scaleY(1);
 }
 
-.row:hover .contentInner {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: color-mix(in srgb, var(--row-accent) 30%, transparent);
-  transform: translateX(6px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25),
-              -4px 0 20px color-mix(in srgb, var(--row-accent) 10%, transparent);
+.time {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  line-height: 1.3;
+}
+
+.time span:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: #CBD5E1;
+}
+
+.timeEnd {
+  font-size: 11px;
+  color: #64748B;
+}
+
+.rowTitle {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 500;
+  color: #E2E8F0;
+  line-height: 1.4;
+  transition: color 0.25s ease;
+}
+
+@media (min-width: 768px) {
+  .rowTitle {
+    font-size: 16px;
+  }
+}
+
+.row:hover .rowTitle {
+  color: #FFFFFF;
 }
 
 .badge {
   display: inline-flex;
-  align-self: flex-start;
+  align-self: center;
+  justify-self: end;
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
@@ -318,29 +187,35 @@
   border-radius: 6px;
   border: 1px solid;
   text-transform: uppercase;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
 }
 
-.row:hover .badge {
-  transform: scale(1.05);
-  box-shadow: 0 2px 10px color-mix(in srgb, var(--row-accent) 20%, transparent);
-}
-
-.itemTitle {
-  font-family: var(--font-heading);
-  font-size: 16px;
-  font-weight: 500;
-  color: #E2E8F0;
-  line-height: 1.4;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-@media (min-width: 768px) {
-  .itemTitle {
-    font-size: 17px;
+/* ---- Mobile: stack time/badge above title ---- */
+@media (max-width: 639px) {
+  .row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "time badge"
+      "title title";
+    row-gap: 6px;
+    padding: 14px 14px;
   }
-}
 
-.row:hover .itemTitle {
-  color: #FFFFFF;
+  .time {
+    grid-area: time;
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .timeEnd::before {
+    content: '– ';
+  }
+
+  .badge {
+    grid-area: badge;
+  }
+
+  .rowTitle {
+    grid-area: title;
+  }
 }
