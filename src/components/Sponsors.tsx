@@ -2,16 +2,14 @@ import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./Sponsors.module.css";
 
-const DIAMOND_SPONSOR = {
-  name: "Yanolja Cloud Solution",
-  tier: "Diamond Tier",
-  logo: "/sponsors/yanolja.png",
-  url: "https://www.yanoljacloudsolution.com/",
-};
+const DIAMOND_SPONSORS = [
+  { name: "Yanolja Cloud Solution", tier: "Diamond Tier", logo: "/sponsors/yanolja.png", url: "https://www.yanoljacloudsolution.com/" },
+  { name: "DevX Labs", tier: "Diamond Tier", logo: "/sponsors/devx.png", url: "https://www.devxlabs.ai/" },
+];
 const GOLD_SPONSORS = [
   { name: "AppGambit", tier: "Gold Tier", logo: "/sponsors/appgambit.png", url: "https://www.appgambit.com/" },
   { name: "Sarvaswa AI Labs", tier: "Gold Tier", logo: "/sponsors/sarvaswa.png", url: "https://sarvaswa.ai/" },
-  { name: "CirrOps", tier: "Gold Tier", logo: "/sponsors/cirops.jpeg", url: "https://cirrops.in/" },
+  { name: "CirrOps", tier: "Gold Tier", logo: "/sponsors/cirops.png", url: "https://cirrops.in/" },
   { name: "Vartalaap", tier: "Gold Tier", logo: "/sponsors/vartalaap.png", url: "https://vartalaap.io/" },
 ];
 const SILVER_SPONSORS = [
@@ -48,24 +46,27 @@ export default function Sponsors() {
 
         {/* 1. Diamond Tier — Highlighted */}
         <ScrollReveal className={styles.sponsorBlock}>
-          <h3 className={styles.blockTitle}>Diamond Sponsor</h3>
+          <h3 className={styles.blockTitle}>Diamond Sponsors</h3>
           <div className={styles.bentoGrid}>
-            <a
-              href={DIAMOND_SPONSOR.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.bentoCell} ${styles.cellFull} ${styles.filledCell} ${styles.diamondCell}`}
-            >
-              <div className={styles.cellContent}>
-                <Image
-                  src={DIAMOND_SPONSOR.logo}
-                  alt={DIAMOND_SPONSOR.name}
-                  width={260}
-                  height={120}
-                  className={styles.sponsorLogo}
-                />
-              </div>
-            </a>
+            {DIAMOND_SPONSORS.map((sponsor, idx) => (
+              <a
+                key={idx}
+                href={sponsor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.bentoCell} ${styles.cellFull} ${styles.filledCell} ${styles.diamondCell}`}
+              >
+                <div className={styles.cellContent}>
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    width={340}
+                    height={156}
+                    className={styles.sponsorLogo}
+                  />
+                </div>
+              </a>
+            ))}
           </div>
         </ScrollReveal>
 
