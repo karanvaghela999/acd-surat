@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { label: "Speakers", href: "#speakers" },
   { label: "Agenda", href: "#agenda" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Badge", href: "/badge" },
   { label: "FAQ", href: "#faq" },
 ];
 
