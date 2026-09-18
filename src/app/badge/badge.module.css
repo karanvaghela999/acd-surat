@@ -1,0 +1,54 @@
+.page { max-width: 1320px; margin: auto; padding: 28px 48px; }
+.nav { display: flex; justify-content: space-between; gap: 24px; font: 11px var(--font-mono); letter-spacing: .06em; padding-bottom: 28px; border-bottom: 1px solid #cbd0d6; }
+.nav a:hover, .appLinks a:hover { text-decoration: underline; }
+.heading { padding: 56px 0 40px; }
+.eyebrow, .step { font: 11px var(--font-mono); letter-spacing: .1em; }
+.eyebrow { margin-bottom: 18px; color: #48624b; }
+.heading h1 { font-size: clamp(44px, 6vw, 78px); letter-spacing: -.055em; margin-bottom: 20px; }
+.heading em { font-style: normal; color: #48624b; }
+.heading > p:last-child { color: var(--text-secondary); max-width: 500px; }
+.studio { display: grid; grid-template-columns: 1.12fr 1fr; gap: 48px; align-items: start; }
+.preview { position: sticky; top: 24px; background: #e2e6e8; padding: 22px; border: 1px solid #c8d1d5; }
+.previewLabel { display: flex; justify-content: space-between; font: 10px var(--font-mono); letter-spacing: .06em; margin-bottom: 20px; color: #485363; }
+.preview canvas { display: block; width: 100%; height: auto; box-shadow: 0 12px 30px #17223520; }
+.preview > p { text-align: center; color: #485363; font-size: 11px; margin-top: 20px; }
+.preview > p span { margin: 0 10px; }
+.controls { min-width: 0; }
+.panel { padding: 0 0 28px; margin-bottom: 28px; border-bottom: 1px solid #cbd0d6; }
+.step { color: #48624b; }
+.panel h2 { font-size: 26px; margin: 12px 0; }
+.panel p { font-size: 14px; color: var(--text-secondary); }
+.upload { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 28px 12px; margin-top: 22px; border: 1px dashed #8aa78c; background: #48624b09; cursor: pointer; text-align: center; }
+.upload:hover { background: #48624b12; }
+.upload:focus-within { outline: 2px solid #48624b; outline-offset: 4px; }
+.upload input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.upload small { color: var(--text-secondary); font-size: 11px; }
+.panel .privacy { margin-top: 12px; font-size: 11px; }
+.sliders { border: 0; margin-top: 22px; display: grid; gap: 16px; }
+.sliders label { display: block; font-size: 12px; }
+.sliders output { float: right; }
+.sliders input { width: 100%; display: block; margin-top: 10px; accent-color: #48624b; cursor: pointer; }
+.sliders:disabled { opacity: .45; }
+.reset { font-size: 12px; text-decoration: underline; text-underline-offset: 4px; justify-self: start; }
+.actions { display: flex; gap: 10px; margin: 20px 0 12px; }
+.primary, .secondary { padding: 15px 16px; font-size: 13px; font-weight: 600; }
+.primary { color: #fff; background: #23303e; flex: 1; }
+.secondary { border: 1px solid #a3abb6; }
+.page button:disabled { opacity: .4; cursor: not-allowed; }
+.page :is(button, a, textarea, input):focus-visible { outline: 2px solid #48624b; outline-offset: 4px; }
+.panel .help { font-size: 12px; line-height: 1.7; }
+.socials { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 18px 0 12px; }
+.socials > * { padding: 12px; text-align: center; font-size: 12px; border: 1px solid #c2c8d1; }
+.socials > :hover { background: #48624b09; }
+.appLinks { display: flex; gap: 20px; font-size: 11px; margin: 14px 0 22px; }
+.caption { display: block; font-size: 12px; }
+.shareHelp { padding: 14px; margin-bottom: 16px; border-left: 3px solid #8aa78c; background: #48624b09; }
+.shareHelp p { font-size: 12px; line-height: 1.7; }
+.shareHelp a { display: inline-block; margin: 10px 0; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+.caption textarea { width: 100%; resize: vertical; background: var(--bg-secondary); color: var(--text-primary); padding: 12px; font: 12px/1.7 var(--font-body); border: 1px solid #cbd0d6; margin: 8px 0 12px; }
+.error { color: #a72239; font-size: 14px; margin-bottom: 12px; }
+.status { font-size: 13px; }
+.footer { text-align: center; font-size: 12px; color: var(--text-secondary); padding: 40px 0 12px; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 800px) { .page { padding: 24px; } .studio { gap: 28px; grid-template-columns: 1fr 1fr; } .preview { padding: 14px; } .actions { flex-direction: column; } }
+@media (max-width: 600px) { .page { padding: 20px; } .nav span { display: none; } .heading { padding: 36px 0 28px; } .studio { grid-template-columns: 1fr; } .preview { position: static; } .controls { margin-top: 8px; } .actions { flex-direction: row; } .panel h2 { font-size: 25px; } }
