@@ -26,7 +26,7 @@ const VOLUNTEERS = [
   },
   {
     name: "Abhishek Monpara",
-    role: "AWS Cloud Architect @ CloudGate",
+    role: "AWS Cloud Engineer @ CloudGate",
     image: "/volunteers/img4.webp",
     initials: "V4",
     linkedin: "https://www.linkedin.com/in/itsabhishekm/",
