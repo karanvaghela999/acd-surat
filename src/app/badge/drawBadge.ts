@@ -97,7 +97,7 @@ export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], 
 
   // The title overlaps the edge like an event poster, with a slate cutout behind it.
   ctx.fillStyle = slate; ctx.fillRect(42, 1168, 885, 218);
-  ctx.fillStyle = sage; ctx.font = "bold 21px Arial"; ctx.fillText("I'M ATTENDING", 56, 1211);
+  ctx.fillStyle = sage; ctx.font = "bold 36px Arial"; ctx.fillText("I'M ATTENDING", 56, 1215);
   ctx.fillStyle = white; ctx.font = "bold 79px Arial"; ctx.fillText("AWS Community", 50, 1297);
   ctx.font = "bold 79px Arial"; ctx.fillText("Day Surat", 50, 1380);
   ctx.fillStyle = sage; ctx.textAlign = "right"; ctx.font = "bold 43px Arial"; ctx.fillText("03 OCT", 1148, 1295);
