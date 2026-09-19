@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { CAPTION, EVENT_URL, drawBadge, loadImage, monochrome } from "./drawBadge";
+import { CAPTION, EVENT_URL, drawBadge, loadImage, preparePhoto } from "./drawBadge";
 import styles from "./badge.module.css";
 
 const PLATFORM_LINKS = [
@@ -29,7 +29,7 @@ export default function BadgeStudio() {
 
   useEffect(() => {
     let active = true;
-    Promise.all([loadImage("/aws-ug-surat-logo.webp"), loadImage("/aws-white.svg")])
+    Promise.all([loadImage("/badge/aws-ug-surat-emblem.png"), loadImage("/aws-white.svg")])
       .then((images) => { if (active) setLogos(images); })
       .catch(() => { if (active) setError("The frame could not load. Please refresh to try again."); });
     return () => { active = false; };
@@ -63,7 +63,7 @@ export default function BadgeStudio() {
     try {
       const image = await loadImage(url);
       if (version !== uploadVersion.current) return;
-      const converted = monochrome(image);
+      const converted = preparePhoto(image);
       setPhoto(converted); setZoom(1); setX(50); setY(50);
       setMessage("Photo added. Adjust the crop, then download or share your badge.");
     } catch (err) {
@@ -113,9 +113,9 @@ export default function BadgeStudio() {
     <nav className={styles.nav} aria-label="Badge navigation"><Link href="/">← Back to the event</Link><span>AWS COMMUNITY DAY / SURAT 2026</span></nav>
     <header className={styles.heading}><p className={styles.eyebrow}>THE COMMUNITY LOOKS GOOD ON YOU</p><h1>See you in <em>Surat.</em></h1><p>Make it official. Turn your photo into your Community Day attendee badge.</p></header>
     <div className={styles.studio}>
-      <section className={styles.preview} aria-label="Badge preview"><div className={styles.previewLabel}><span>YOUR ATTENDEE BADGE</span><span>4:5 / PNG</span></div><canvas ref={canvas} width={1200} height={1500} role="img" aria-label={photo ? "Your black-and-white photo in the AWS Community Day Surat attendee frame" : "Attendee frame preview with a placeholder portrait"} /><p>03 October 2026 <span>•</span> La Fountain, Surat</p></section>
+      <section className={styles.preview} aria-label="Badge preview"><div className={styles.previewLabel}><span>YOUR ATTENDEE BADGE</span><span>4:5 / PNG</span></div><canvas ref={canvas} width={1200} height={1500} role="img" aria-label={photo ? "Your photo in the AWS Community Day Surat attendee frame" : "Attendee frame preview with a placeholder portrait"} /><p>03 October 2026 <span>•</span> La Fountain, Surat</p></section>
       <div className={styles.controls}>
-        <section className={styles.panel}><span className={styles.step}>01 / ADD YOUR PHOTO</span><h2>Your place in the frame.</h2><p>Pick a portrait you love. We’ll make it black and white; the frame stays in full colour.</p><label className={styles.upload}> <span>{loading ? "Opening your photo…" : photo ? "Choose a different photo ↗" : "Upload your photo ↗"}</span><input aria-label="Upload your photo" type="file" accept="image/jpeg,image/png,image/webp" disabled={loading} onChange={(e) => { void upload(e.target.files?.[0]); e.target.value = ""; }} /><small>JPG, PNG or WebP · Up to 20 MB</small></label><p className={styles.privacy}>Your photo stays on your device. No account needed.</p></section>
+        <section className={styles.panel}><span className={styles.step}>01 / ADD YOUR PHOTO</span><h2>Your place in the frame.</h2><p>Pick a portrait you love. We’ll preserve its original colours and fit it into the frame.</p><label className={styles.upload}> <span>{loading ? "Opening your photo…" : photo ? "Choose a different photo ↗" : "Upload your photo ↗"}</span><input aria-label="Upload your photo" type="file" accept="image/jpeg,image/png,image/webp" disabled={loading} onChange={(e) => { void upload(e.target.files?.[0]); e.target.value = ""; }} /><small>JPG, PNG or WebP · Up to 20 MB</small></label><p className={styles.privacy}>Your photo stays on your device. No account needed.</p></section>
         <section className={styles.panel}><span className={styles.step}>02 / FIND YOUR FIT</span><h2>A little closer. A little you.</h2><fieldset disabled={!photo || loading} className={styles.sliders}><legend className={styles.srOnly}>Adjust your photo</legend><label>Zoom <output>{zoom.toFixed(1)}×</output><input aria-label="Zoom" type="range" min="1" max="3" step="0.05" value={zoom} onChange={(e) => adjust(setZoom, Number(e.target.value))} /></label><label>Horizontal position<input aria-label="Horizontal position" type="range" min="0" max="100" value={x} onChange={(e) => adjust(setX, Number(e.target.value))} /></label><label>Vertical position<input aria-label="Vertical position" type="range" min="0" max="100" value={y} onChange={(e) => adjust(setY, Number(e.target.value))} /></label><button className={styles.reset} onClick={() => { if (zoom !== 1 || x !== 50 || y !== 50) { setFile(null); setZoom(1); setX(50); setY(50); } }}>Reset crop ↺</button></fieldset></section>
         <section className={styles.panel}><span className={styles.step}>03 / LET YOUR PEOPLE KNOW</span><h2>Ready for your feed.</h2><div className={styles.actions}><button className={styles.primary} disabled={!ready} onClick={download}>Download badge ↓</button><button className={styles.secondary} disabled={!ready} onClick={() => void share()}>Share image ↗</button></div><p className={styles.help}>Download your badge, then attach it to your post. On supported phones, Share image opens your apps.</p>
           <div className={styles.socials}>

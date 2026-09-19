@@ -24,12 +24,12 @@ test("platform links open correct destinations and offer same-tab fallback", asy
   await expect(page).toHaveURL("https://www.instagram.com/");
 });
 
-test("badge upload, grayscale export, crop and sharing fallbacks", async ({ page }, testInfo) => {
+test("badge upload, colour export, crop and sharing fallbacks", async ({ page }, testInfo) => {
   await page.goto("/badge");
   await expect(page).toHaveTitle(/Create your attendee badge/);
   await expect(page.getByRole("button", { name: "Download badge" })).toBeDisabled();
   await expect(page.getByLabel("Zoom", { exact: true })).toBeDisabled();
-  // A colourful, wide fixture exercises crop positioning and grayscale conversion.
+  // A colourful, wide fixture exercises colour preservation and crop positioning.
   const data = await page.evaluate(() => {
     const c = document.createElement("canvas"); c.width = 1600; c.height = 900;
     const ctx = c.getContext("2d")!;
@@ -44,8 +44,7 @@ test("badge upload, grayscale export, crop and sharing fallbacks", async ({ page
     const ctx = c.getContext("2d")!;
     return { photo: Array.from(ctx.getImageData(600, 700, 1, 1).data), frame: Array.from(ctx.getImageData(30, 1400, 1, 1).data) };
   });
-  expect(pixels.photo[0]).toBe(pixels.photo[1]);
-  expect(pixels.photo[1]).toBe(pixels.photo[2]);
+  expect(new Set(pixels.photo.slice(0, 3)).size).toBeGreaterThan(1);
   expect(pixels.frame[0]).not.toBe(pixels.frame[1]);
   const before = await page.locator("canvas").evaluate((c: HTMLCanvasElement) => c.toDataURL());
   await page.getByLabel("Horizontal position", { exact: true }).fill("0");

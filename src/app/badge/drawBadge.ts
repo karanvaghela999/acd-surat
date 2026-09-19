@@ -19,8 +19,8 @@ function drawContainedLogo(ctx: CanvasRenderingContext2D, image: HTMLImageElemen
   ctx.drawImage(image, x + (width - w) / 2, y + (height - h) / 2, w, h);
 }
 
-// Convert once on upload. Pixel conversion also works on browsers without canvas filters.
-export function monochrome(image: HTMLImageElement): HTMLCanvasElement {
+// Resize very large source photos once on upload while preserving their original colours.
+export function preparePhoto(image: HTMLImageElement): HTMLCanvasElement {
   if (image.naturalWidth * image.naturalHeight > 60_000_000) {
     throw new Error("Please choose a photo smaller than 60 megapixels.");
   }
@@ -28,17 +28,11 @@ export function monochrome(image: HTMLImageElement): HTMLCanvasElement {
   const scale = Math.min(1, 2400 / Math.max(image.naturalWidth, image.naturalHeight));
   canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
   canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
-  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("Your browser could not open the photo editor.");
   ctx.fillStyle = "#dedede";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-  const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < pixels.data.length; i += 4) {
-    const gray = Math.round(pixels.data[i] * 0.2126 + pixels.data[i + 1] * 0.7152 + pixels.data[i + 2] * 0.0722);
-    pixels.data[i] = pixels.data[i + 1] = pixels.data[i + 2] = gray;
-  }
-  ctx.putImageData(pixels, 0, 0);
   return canvas;
 }
 
@@ -59,14 +53,8 @@ export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], 
   }
   ctx.restore();
 
-  // Clip just the emblem's hexagonal perimeter, leaving no white logo tile.
-  ctx.save(); ctx.beginPath();
-  const emblem = [[256,26],[458,145],[458,370],[256,490],[46,370],[46,145]];
-  emblem.forEach(([px, py], i) => {
-    if (i === 0) ctx.moveTo(50 + px / 512 * 112, 42 + py / 512 * 112);
-    else ctx.lineTo(50 + px / 512 * 112, 42 + py / 512 * 112);
-  });
-  ctx.closePath(); ctx.clip(); drawContainedLogo(ctx, logos[0], 50, 42, 112, 112); ctx.restore();
+  // The supplied emblem already has a transparent background; draw it intact.
+  drawContainedLogo(ctx, logos[0], 50, 39, 112, 118);
   ctx.fillStyle = white; ctx.font = "bold 24px Arial"; ctx.fillText("AWS User Groups", 180, 91);
   ctx.fillStyle = sage; ctx.font = "19px Arial"; ctx.fillText("S U R A T", 180, 121);
   drawContainedLogo(ctx, logos[1], 790, 43, 110, 110);

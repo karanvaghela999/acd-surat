@@ -33,7 +33,7 @@ npm run dev        # starts on http://localhost:3000
 
 ## Attendee badge
 
-Visit `/badge` for the standalone attendee badge studio, linked from the main website's desktop and mobile navigation. Photos are processed locally, converted to grayscale, and exported at 1200 × 1500 with a dark-slate and sage geometric canvas frame and existing AWS logos. JPG, PNG and WebP files up to 20 MB / 60 megapixels are supported, with zoom and position controls.
+Visit `/badge` for the standalone attendee badge studio, linked from the main website's desktop and mobile navigation. Photos are processed locally, retain their original colours, and are exported at 1200 × 1500 with a dark-slate and sage geometric canvas frame and existing AWS logos. JPG, PNG and WebP files up to 20 MB / 60 megapixels are supported, with zoom and position controls.
 
 File sharing uses the device share sheet when supported (HTTPS required). X and LinkedIn links share the live event homepage; users attach their downloaded image. WhatsApp's message link prefills the caption and URL, and Instagram's link opens Instagram. Each platform offers a same-tab fallback for blocked new tabs. Separate Instagram image/story and WhatsApp Status buttons use the share sheet or download fallback; a website cannot automatically post to a user's status/story. The caption is available to copy separately. Browser tests intercept outbound destinations and verify navigation, not authenticated posting on third-party platforms.
 
