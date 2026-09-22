@@ -11,6 +11,7 @@ const PARTNERS = [
   { name: "SIC", logo: "/community-partners/sic.svg", url: "https://suratitcommunity.com/" },
   { name: "FoF Surat", logo: "/community-partners/fofsurat.png", url: "https://friends.figma.com/surat/" },
   { name: "Elastic User Group Gujarat", logo: "/community-partners/elastic.png", url: "https://community.elastic.co/gujarat/" },
+  { name: "TIE Surat", logo: "/community-partners/tiesurat.jpeg", url: "https://tieconsurat.org/" },
 ];
 
 export default function CommunityPartners() {

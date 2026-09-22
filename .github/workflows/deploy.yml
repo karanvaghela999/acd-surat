@@ -60,10 +60,12 @@ jobs:
       # S3 REST origins do not resolve extensionless Next.js routes automatically.
       - name: Publish badge route aliases
         run: |
-          for KEY in badge badge/ badge/index.html; do
-            aws s3 cp ./out/badge.html "s3://acd26.awsugsurat.com/$KEY" \
-              --region ap-south-1 --content-type "text/html; charset=utf-8" \
-              --cache-control "public, no-cache"
+          for ROUTE in badge dont-come-here-volunteer-badge; do
+            for KEY in "$ROUTE" "$ROUTE/" "$ROUTE/index.html"; do
+              aws s3 cp "./out/$ROUTE.html" "s3://acd26.awsugsurat.com/$KEY" \
+                --region ap-south-1 --content-type "text/html; charset=utf-8" \
+                --cache-control "public, no-cache"
+            done
           done
 
       - name: Apply security headers policy

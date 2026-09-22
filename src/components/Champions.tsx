@@ -25,6 +25,14 @@ const CHAMPIONS = [
     initials: "HS",
     image: "/diamondtickets/hiren.jpeg",
   },
+  {
+    name: "Paras Chodavadiya",
+    role: "Diamond Ticket Holder",
+    tier: "diamond" as const,
+    initials: "PC",
+    image: "/diamondtickets/paras_chodavadiya.jpg",
+    linkedin: "https://www.linkedin.com/in/paras-chodavadiya/",
+  },
 ];
 
 const TIER_LABEL = {

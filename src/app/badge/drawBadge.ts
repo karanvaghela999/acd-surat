@@ -1,6 +1,7 @@
 export const WIDTH = 1200;
 export const HEIGHT = 1500;
-export const CAPTION = "I'm attending AWS Community Day Surat 2026 on October 3! See you there. #AWSCommunityDay #AWSSurat";
+export const CAPTION = "I'm attending AWS Community Day Surat 2026 on October 3! See you there. #acdsurat2026";
+export const VOLUNTEER_CAPTION = "I'm volunteering at AWS Community Day Surat 2026 on October 3! Proud to help bring our community together. #acdsurat2026";
 export const EVENT_URL = "https://acd26.awsugsurat.com/";
 
 export function loadImage(src: string): Promise<HTMLImageElement> {
@@ -36,18 +37,20 @@ export function preparePhoto(image: HTMLImageElement): HTMLCanvasElement {
   return canvas;
 }
 
-export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], photo: HTMLCanvasElement | null, zoom: number, x: number, y: number) {
+export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], photo: HTMLCanvasElement | null, zoom: number, x: number, y: number, variant: "attendee" | "volunteer" = "attendee") {
+  const volunteer = variant === "volunteer";
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("Your browser does not support the badge editor.");
   canvas.width = WIDTH;
   canvas.height = HEIGHT;
-  const slate = "#23303e";
-  const sage = "#d1e5cd";
+  const slate = volunteer ? "#203b40" : "#23303e";
+  const sage = volunteer ? "#b5ded5" : "#d1e5cd";
+  const accent = volunteer ? "#efb56b" : "#ff9900";
   const white = "#fafafa";
   ctx.fillStyle = slate; ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   // Fine orbital geometry echoes the site's cloud/community identity.
-  ctx.save(); ctx.strokeStyle = "#d1e5cd"; ctx.globalAlpha = 0.12; ctx.lineWidth = 1;
+  ctx.save(); ctx.strokeStyle = sage; ctx.globalAlpha = 0.12; ctx.lineWidth = 1;
   for (let i = 0; i < 6; i++) {
     ctx.beginPath(); ctx.ellipse(950, 650, 460 + i * 38, 590 + i * 38, -.4, 0, Math.PI * 2); ctx.stroke();
   }
@@ -83,21 +86,25 @@ export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], 
   const shade = ctx.createLinearGradient(0, 860, 0, 1150);
   shade.addColorStop(0, "rgba(0,0,0,0)"); shade.addColorStop(1, "rgba(0,0,0,.65)");
   ctx.fillStyle = shade; ctx.fillRect(200, 860, 936, 290);
-  ctx.fillStyle = white; ctx.font = "bold 26px Arial"; ctx.fillText("SEE YOU", 236, 1046);
-  ctx.font = "bold 64px Arial"; ctx.fillText("IN SURAT.", 231, 1110);
+  if (volunteer) {
+    ctx.fillStyle = accent; ctx.fillRect(236, 938, 280, 52);
+    ctx.fillStyle = slate; ctx.font = "bold 25px Arial"; ctx.fillText("VOLUNTEER CREW", 250, 973);
+  }
+  ctx.fillStyle = white; ctx.font = "bold 26px Arial"; ctx.fillText(volunteer ? "BEHIND THE SCENES." : "SEE YOU", 236, 1046);
+  ctx.font = "bold 64px Arial"; ctx.fillText(volunteer ? "FOR THE PEOPLE." : "IN SURAT.", 231, 1110);
   ctx.restore();
 
   // A vertical type rail balances the portrait without covering the face.
   ctx.save(); ctx.translate(112, 1010); ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = sage; ctx.font = "bold 72px Arial"; ctx.fillText("LET'S BUILD.", 0, 0);
+  ctx.fillStyle = sage; ctx.font = volunteer ? "bold 60px Arial" : "bold 72px Arial"; ctx.fillText(volunteer ? "WE MAKE IT HAPPEN." : "LET'S BUILD.", 0, 0);
   ctx.font = "18px Arial"; ctx.fillText("IDEAS. CONNECTIONS. WHAT COMES NEXT.", 0, 42); ctx.restore();
-  ctx.strokeStyle = "#ff9900"; ctx.lineWidth = 9;
+  ctx.strokeStyle = accent; ctx.lineWidth = 9;
   ctx.beginPath(); ctx.moveTo(68, 306); ctx.lineTo(130, 244); ctx.moveTo(68, 244); ctx.lineTo(130, 244); ctx.lineTo(130, 306); ctx.stroke();
   ctx.fillStyle = sage; ctx.font = "bold 22px Arial"; ctx.fillText("2026", 61, 1120);
 
   // The title overlaps the edge like an event poster, with a slate cutout behind it.
   ctx.fillStyle = slate; ctx.fillRect(42, 1168, 885, 218);
-  ctx.fillStyle = sage; ctx.font = "bold 36px Arial"; ctx.fillText("I'M ATTENDING", 56, 1215);
+  ctx.fillStyle = sage; ctx.font = "bold 36px Arial"; ctx.fillText(volunteer ? "I'M VOLUNTEERING" : "I'M ATTENDING", 56, 1215);
   ctx.fillStyle = white; ctx.font = "bold 79px Arial"; ctx.fillText("AWS Community", 50, 1297);
   ctx.font = "bold 79px Arial"; ctx.fillText("Day Surat", 50, 1380);
   ctx.fillStyle = sage; ctx.textAlign = "right"; ctx.font = "bold 43px Arial"; ctx.fillText("03 OCT", 1148, 1295);
@@ -107,5 +114,5 @@ export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], 
   ctx.beginPath(); ctx.moveTo(54, 1411); ctx.lineTo(1148, 1411); ctx.stroke();
   ctx.fillStyle = sage; ctx.beginPath(); ctx.arc(64, 1453, 6, 0, Math.PI * 2); ctx.fill();
   ctx.font = "19px Arial"; ctx.fillText("ONE COMMUNITY. ENDLESS POSSIBILITIES.", 83, 1460);
-  ctx.textAlign = "right"; ctx.fillText("#AWSCommunityDay", 1148, 1460); ctx.textAlign = "left";
+  ctx.textAlign = "right"; ctx.fillText("#acdsurat2026", 1148, 1460); ctx.textAlign = "left";
 }
