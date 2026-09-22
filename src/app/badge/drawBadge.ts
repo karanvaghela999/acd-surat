@@ -43,9 +43,9 @@ export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], 
   if (!ctx) throw new Error("Your browser does not support the badge editor.");
   canvas.width = WIDTH;
   canvas.height = HEIGHT;
-  const slate = volunteer ? "#203b40" : "#23303e";
-  const sage = volunteer ? "#b5ded5" : "#d1e5cd";
-  const accent = volunteer ? "#efb56b" : "#ff9900";
+  const slate = volunteer ? "#271d3b" : "#23303e";
+  const sage = volunteer ? "#ddcaf7" : "#d1e5cd";
+  const accent = volunteer ? "#ffad61" : "#ff9900";
   const white = "#fafafa";
   ctx.fillStyle = slate; ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
@@ -66,6 +66,13 @@ export function drawBadge(canvas: HTMLCanvasElement, logos: HTMLImageElement[], 
 
   // Offset architectural edges form a distinctive, open portrait frame.
   ctx.fillStyle = sage;
+  if (volunteer) {
+    const frameGradient = ctx.createLinearGradient(178, 194, 1160, 1192);
+    frameGradient.addColorStop(0, "#a77bea");
+    frameGradient.addColorStop(0.45, "#c593df");
+    frameGradient.addColorStop(1, accent);
+    ctx.fillStyle = frameGradient;
+  }
   ctx.beginPath(); ctx.moveTo(178, 194); ctx.lineTo(1048, 194); ctx.lineTo(1160, 306);
   ctx.lineTo(1160, 1080); ctx.lineTo(1048, 1192); ctx.lineTo(178, 1192); ctx.closePath(); ctx.fill();
   const box = { x: 200, y: 214, width: 936, height: 936 };
