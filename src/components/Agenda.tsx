@@ -41,7 +41,7 @@ const AGENDA_PERIODS = [
       { time: "1:45 PM", end: "2:15 PM", title: "AWS Serverless Beyond Lambda: How Production Systems Fit Together", speaker: "Dhaval Nagar", type: "session" as const },
       { time: "2:15 PM", end: "2:30 PM", title: "Diamond Sponsor Session", type: "sponsor" as const },
       { time: "2:30 PM", end: "2:58 PM", title: "Your Next DevOps Engineer Is an AI Agent: Autonomous EKS Troubleshooting", speaker: "Krutarth Rindani & Ashish Gajjar", type: "session" as const },
-      { time: "3:00 PM", end: "3:13 PM", title: "Lightning Talk", speaker: "Nirav Pancholi", type: "lightning" as const },
+      { time: "3:00 PM", end: "3:13 PM", title: "Lightning Talk", type: "lightning" as const },
       { time: "3:15 PM", end: "3:45 PM", title: "Tea Break, Sponsor Booth Visits & Networking", type: "break" as const },
       { time: "3:45 PM", end: "4:15 PM", title: "Main Community Quiz", type: "quiz" as const },
       { time: "4:15 PM", end: "5:00 PM", title: "Closing Remarks, Community Recognition & Group Photo", type: "main" as const },
