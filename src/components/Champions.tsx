@@ -23,11 +23,11 @@ const CHAMPIONS = [
     role: "Founder & Additional Director, AlmanacInc Private Limited",
     tier: "diamond" as const,
     initials: "HS",
-    image: "/diamondtickets/hiren.jpeg",
+    image: "/diamondtickets/hiren-updated.png",
   },
   {
     name: "Paras Chodavadiya",
-    role: "Diamond Ticket Holder",
+    role: "CTO @ Sarvadhi Solutions Pvt. Ltd",
     tier: "diamond" as const,
     initials: "PC",
     image: "/diamondtickets/paras_chodavadiya.jpg",

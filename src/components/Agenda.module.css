@@ -165,6 +165,20 @@
   transition: color 0.25s ease;
 }
 
+.sessionInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 4px;
+}
+
+.speaker {
+  color: #AFC3D6;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 @media (min-width: 768px) {
   .rowTitle {
     font-size: 16px;
@@ -215,7 +229,7 @@
     grid-area: badge;
   }
 
-  .rowTitle {
+  .sessionInfo {
     grid-area: title;
   }
 }

@@ -12,6 +12,7 @@ const PARTNERS = [
   { name: "FoF Surat", logo: "/community-partners/fofsurat.png", url: "https://friends.figma.com/surat/" },
   { name: "Elastic User Group Gujarat", logo: "/community-partners/elastic.png", url: "https://community.elastic.co/gujarat/" },
   { name: "TIE Surat", logo: "/community-partners/tiesurat.jpeg", url: "https://tieconsurat.org/" },
+  { name: "AWS Women in Tech", logo: "/community-partners/aws-women-in-tech.png" },
 ];
 
 export default function CommunityPartners() {
@@ -28,20 +29,19 @@ export default function CommunityPartners() {
         </ScrollReveal>
 
         <div className={styles.partnersGrid}>
-          {PARTNERS.map((partner) => (
-            <a
+          {PARTNERS.map((partner) => {
+            const Card = partner.url ? "a" : "div";
+            return <Card
               key={partner.name}
-              href={partner.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(partner.url ? { href: partner.url, target: "_blank", rel: "noopener noreferrer" } : {})}
               className={styles.partnerCard}
             >
               <div className={styles.logoWrapper}>
                 <Image src={partner.logo} alt={partner.name} fill className={styles.partnerLogo} />
               </div>
               <span className={styles.partnerName}>{partner.name}</span>
-            </a>
-          ))}
+            </Card>;
+          })}
         </div>
       </div>
     </section>
