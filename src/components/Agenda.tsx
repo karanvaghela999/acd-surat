@@ -17,7 +17,7 @@ const AGENDA_PERIODS = [
     label: "Morning",
     items: [
       { time: "8:00 AM", end: "9:15 AM", title: "Registration, Breakfast & Networking", type: "break" as const },
-      { time: "9:15 AM", end: "9:30 AM", title: "Welcome Note & Opening Ceremony", type: "main" as const },
+      { time: "9:15 AM", end: "9:30 AM", title: "Welcome Note & Opening Ceremony", speaker: "Nirmal Chhodvadiya & Dhaval Nagar", type: "main" as const },
       { time: "9:32 AM", end: "10:00 AM", title: "Opening Keynote: The AI Builder Journey", speaker: "Ridhima Kapoor", type: "keynote" as const },
       { time: "10:00 AM", end: "10:28 AM", title: "Three Layers of Defence: Securing AI Agents on AWS", speaker: "Udit Parikh", type: "session" as const },
       { time: "10:30 AM", end: "11:00 AM", title: "Breaking Down Data Silos: Interoperability with Iceberg", speaker: "Shubham Purwar", type: "session" as const },
