@@ -44,7 +44,7 @@ const AGENDA_PERIODS = [
       { time: "3:00 PM", end: "3:13 PM", title: "Lightning Talk", type: "lightning" as const },
       { time: "3:15 PM", end: "3:45 PM", title: "Tea Break, Sponsor Booth Visits & Networking", type: "break" as const },
       { time: "3:45 PM", end: "4:15 PM", title: "Main Community Quiz", type: "quiz" as const },
-      { time: "4:15 PM", end: "5:00 PM", title: "Closing Remarks, Community Recognition & Group Photo", type: "main" as const },
+      { time: "4:15 PM", end: "5:00 PM", title: "Closing Remarks, Community Recognition & Group Photo", speaker: "Nirmal Chhodvadiya & Rahul Ladumor", type: "main" as const },
     ],
   },
 ];
