@@ -4,6 +4,14 @@ import styles from "./Champions.module.css";
 
 const CHAMPIONS = [
   {
+    name: "Gani Padela",
+    role: "Backend TechLead @ LOGICWIND",
+    tier: "patron" as const,
+    initials: "GP",
+    image: "/diamondtickets/gani_padela.jpg",
+    linkedin: "https://www.linkedin.com/in/ganipadela/",
+  },
+  {
     name: "Ghanshyam Katriya",
     role: "Technical Lead @ Cyara",
     tier: "patron" as const,
