@@ -4,12 +4,12 @@ import styles from "./Champions.module.css";
 
 const CHAMPIONS = [
   {
-    name: "Gani Padela",
-    role: "Backend TechLead @ LOGICWIND",
+    name: "Harshil Soni",
+    role: "Module Lead @ HGS",
     tier: "patron" as const,
-    initials: "GP",
-    image: "/diamondtickets/gani_padela.jpg",
-    linkedin: "https://www.linkedin.com/in/ganipadela/",
+    initials: "HS",
+    image: "/diamondtickets/harshil.png",
+    linkedin: "https://www.linkedin.com/in/harshil-soni-413775119/",
   },
   {
     name: "Ghanshyam Katriya",
@@ -19,12 +19,12 @@ const CHAMPIONS = [
     image: "/diamondtickets/ghansyam.jpg",
   },
   {
-    name: "Harshil Soni",
-    role: "Module Lead @ HGS",
+    name: "Gani Padela",
+    role: "Backend TechLead @ LOGICWIND",
     tier: "patron" as const,
-    initials: "HS",
-    image: "/diamondtickets/harshil.png",
-    linkedin: "https://www.linkedin.com/in/harshil-soni-413775119/",
+    initials: "GP",
+    image: "/diamondtickets/gani_padela.jpg",
+    linkedin: "https://www.linkedin.com/in/ganipadela/",
   },
   {
     name: "Hiren Samtani",
