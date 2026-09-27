@@ -2,7 +2,7 @@ import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./Volunteers.module.css";
 
-const VOLUNTEERS = [
+const CORE_TEAM = [
   {
     name: "Dhaval Nagar",
     role: "Founder @ AppGambit & AWS UG Surat Lead",
@@ -75,13 +75,13 @@ const VOLUNTEERS = [
   }
 ];
 
-export default function Volunteers() {
+export default function CoreTeam() {
   return (
-    <section id="volunteers" className={styles.section}>
+    <section id="core-team" className={styles.section}>
       <div className="container">
         <ScrollReveal className={styles.headerBlock}>
           <span className="section-label" style={{ color: "#94A3B8" }}>The Team</span>
-          <h2 className={styles.title}>Meet our volunteers</h2>
+          <h2 className={styles.title}>Meet our core team</h2>
           <p className={styles.subtitle}>
             The passionate builders behind the scenes making AWS Community Day
             Surat 2026 possible.
@@ -89,7 +89,7 @@ export default function Volunteers() {
         </ScrollReveal>
 
         <div className={styles.grid}>
-          {VOLUNTEERS.map((volunteer, i) => (
+          {CORE_TEAM.map((volunteer) => (
             <ScrollReveal key={volunteer.name}>
               <a
                 href={volunteer.linkedin}

@@ -11,6 +11,11 @@
   color: var(--text-on-dark);
 }
 
+.volunteerSection {
+  background: linear-gradient(145deg, #26384A 0%, #213244 100%);
+  border-bottom: 1px solid rgba(209, 229, 205, 0.35);
+}
+
 .headerBlock {
   display: flex;
   flex-direction: column;

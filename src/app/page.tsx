@@ -8,7 +8,8 @@ import Agenda from "@/components/Agenda";
 import Gallery from "@/components/Gallery";
 import Champions from "@/components/Champions";
 import FAQ from "@/components/FAQ";
-import Volunteers from "@/components/Volunteers";
+import CoreTeam from "@/components/Volunteers";
+import VolunteerTeam from "@/components/VolunteerTeam";
 import CommunityPartners from "@/components/CommunityPartners";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
@@ -27,7 +28,8 @@ export default function Home() {
         <Gallery />
         <Champions />
         <FAQ />
-        <Volunteers />
+        <CoreTeam />
+        <VolunteerTeam />
         <CommunityPartners />
         <FooterCTA />
       </main>
