@@ -604,3 +604,13 @@
 .patronBtn:hover .arrow {
   transform: translateX(4px);
 }
+
+.patronBtnDisabled,
+.patronBtnDisabled:hover,
+[data-theme="dark"] .patronBtnDisabled,
+[data-theme="dark"] .patronBtnDisabled:hover {
+  cursor: not-allowed;
+  background-color: #94A3B8;
+  color: #23303E;
+  transform: none;
+}

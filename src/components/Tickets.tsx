@@ -61,9 +61,10 @@ const TICKETS = [
   {
     name: "Diamond",
     price: "₹3,000",
-    tag: "VIP",
-    href: "https://konfhub.com/checkout/acdsurat26?ticketId=114271",
+    tag: "SOLD OUT",
+    href: "#",
     highlight: false,
+    soldOut: true,
     perks: [
       "Access to the conference on 3rd October 2026",
       "Special Swag & Goodies",
@@ -209,15 +210,9 @@ export default function Tickets() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="https://konfhub.com/checkout/acdsurat26?ticketId=114476"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.patronBtn}
-              >
-                Support the Community
-                <span className={styles.arrow}>→</span>
-              </a>
+              <button type="button" disabled className={`${styles.patronBtn} ${styles.patronBtnDisabled}`}>
+                Sold Out
+              </button>
             </div>
           </div>
         </div>
