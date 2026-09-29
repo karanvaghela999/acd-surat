@@ -47,7 +47,7 @@ const CORE_TEAM = [
   },
   {
     name: "Rahul Ladumor",
-    role: "Senior Solutions Architect @ ASTM International",
+    role: "Senior AI Architect @ Datavid",
     image: "/volunteers/img7.webp",
     initials: "V7",
     linkedin: "https://www.linkedin.com/in/rahulladumor",
