@@ -23,7 +23,7 @@ const AGENDA_PERIODS = [
       { time: "10:30 AM", end: "11:00 AM", title: "Breaking Down Data Silos: Interoperability with Iceberg", speaker: "Shubham Purwar", type: "session" as const },
       { time: "11:00 AM", end: "11:13 AM", title: "Diamond Sponsor Session", type: "sponsor" as const },
       { time: "11:15 AM", end: "11:45 AM", title: "Building Real-Time Voice Applications with Amazon Nova 2 Sonic", speaker: "Aman Gupta", type: "session" as const },
-      { time: "11:45 AM", end: "12:00 PM", title: "Community Quiz – Round 1", type: "quiz" as const },
+      { time: "11:45 AM", end: "12:00 PM", title: "Community Quiz", type: "quiz" as const },
     ],
   },
   {
@@ -31,7 +31,7 @@ const AGENDA_PERIODS = [
     label: "Midday",
     items: [
       { time: "12:00 PM", end: "1:30 PM", title: "Lunch, Sponsor Booths & Community Networking", type: "break" as const },
-      { time: "1:30 PM", end: "1:45 PM", title: "Community Quiz – Round 2", type: "quiz" as const },
+      { time: "1:30 PM", end: "1:45 PM", title: "Community Quiz", type: "quiz" as const },
     ],
   },
   {
@@ -41,7 +41,7 @@ const AGENDA_PERIODS = [
       { time: "1:45 PM", end: "2:15 PM", title: "AWS Serverless Beyond Lambda: How Production Systems Fit Together", speaker: "Dhaval Nagar", type: "session" as const },
       { time: "2:15 PM", end: "2:30 PM", title: "Diamond Sponsor Session", type: "sponsor" as const },
       { time: "2:30 PM", end: "2:58 PM", title: "Your Next DevOps Engineer Is an AI Agent: Autonomous EKS Troubleshooting", speaker: "Krutarth Rindani & Ashish Gajjar", type: "session" as const },
-      { time: "3:00 PM", end: "3:13 PM", title: "Lightning Talk", type: "lightning" as const },
+      { time: "3:00 PM", end: "3:13 PM", title: "Lightning Talk", speaker: "Vishal Kotecha", type: "lightning" as const },
       { time: "3:15 PM", end: "3:45 PM", title: "Tea Break, Sponsor Booth Visits & Networking", type: "break" as const },
       { time: "3:45 PM", end: "4:15 PM", title: "Main Community Quiz", type: "quiz" as const },
       { time: "4:15 PM", end: "5:00 PM", title: "Closing Remarks, Community Recognition & Group Photo", speaker: "Nirmal Chhodvadiya & Rahul Ladumor", type: "main" as const },
