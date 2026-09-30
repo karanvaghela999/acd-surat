@@ -96,7 +96,7 @@ export default function FooterCTA() {
                   href="#tickets"
                   className={`btn ${styles.registerBtn}`}
                 >
-                  REGISTER NOW
+                  TICKETS SOLD OUT
                   <span className={styles.chevron}>&gt;</span>
                 </a>
               </div>

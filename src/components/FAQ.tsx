@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     q: "How can I register?",
-    a: "You can register directly through the event website. Seats may be limited, so early registration is recommended.",
+    a: "All ticket tiers for AWS Community Day Surat 2026 are sold out. Registration is closed. Thank you for the incredible response!",
   },
   {
     q: "Can I apply as a speaker?",

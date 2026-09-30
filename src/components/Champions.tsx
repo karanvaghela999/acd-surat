@@ -108,10 +108,10 @@ export default function Champions() {
         {/* CTA */}
         <ScrollReveal className={styles.ctaWrapper}>
           <p className={styles.ctaText}>
-            Diamond and Patron tickets are sold out. Regular tickets are still available.
+            All tickets, including Regular, Diamond, and Patron, are sold out. Thank you for your support!
           </p>
           <a href="#tickets" className={styles.ctaButton}>
-            VIEW AVAILABLE TICKETS
+            VIEW TICKET DETAILS
             <span className={styles.ctaChevron}>&gt;</span>
           </a>
         </ScrollReveal>

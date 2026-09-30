@@ -99,13 +99,11 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="https://konfhub.com/checkout/acdsurat26?ticketId=111598"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#tickets"
               className={`btn ${scrolled ? "btn-primary" : styles.heroBtn}`}
               style={{ fontSize: "11px", padding: "6px 12px" }}
             >
-              Get Tickets
+              Tickets Sold Out
             </a>
           </nav>
 
@@ -159,12 +157,12 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#"
+              href="#tickets"
               className="btn btn-primary btn-lg"
               style={{ width: "100%", marginTop: "1rem" }}
               onClick={handleNavClick}
             >
-              Get Tickets
+              Tickets Sold Out
             </a>
           </nav>
         </div>

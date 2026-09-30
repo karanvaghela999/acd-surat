@@ -44,9 +44,10 @@ const TICKETS = [
   {
     name: "Regular",
     price: "₹599",
-    tag: "POPULAR",
-    href: "https://konfhub.com/checkout/acdsurat26?ticketId=111599",
-    highlight: true,
+    tag: "SOLD OUT",
+    href: "#",
+    highlight: false,
+    soldOut: true,
     perks: [
       "Access to the conference on 3rd October 2026",
       "Welcome Swag & Goodies",
@@ -103,10 +104,10 @@ export default function Tickets() {
         <div className="container">
           <ScrollReveal className={styles.headerBlock}>
             <span className="section-label" style={{ color: "#94A3B8" }}>Tickets</span>
-            <h2 className={styles.title}>Choose your pass</h2>
+            <h2 className={styles.title}>All tickets are sold out</h2>
             <p className={styles.subtitle}>
-              Every ticket includes full-day access to talks, workshops, meals,
-              and community networking at AWS Community Day Surat 2026.
+              Thank you for the incredible response! All ticket tiers for AWS
+              Community Day Surat 2026 are sold out.
             </p>
           </ScrollReveal>
 

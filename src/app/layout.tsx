@@ -104,14 +104,14 @@ const jsonLdEvent = {
       "@type": "Offer",
       name: "Early Bird",
       url: "https://acd26.awsugsurat.com/#tickets",
-      availability: "https://schema.org/InStock",
+      availability: "https://schema.org/SoldOut",
       priceCurrency: "INR",
     },
     {
       "@type": "Offer",
       name: "Regular",
       url: "https://acd26.awsugsurat.com/#tickets",
-      availability: "https://schema.org/InStock",
+      availability: "https://schema.org/SoldOut",
       priceCurrency: "INR",
     },
   ],
@@ -150,7 +150,7 @@ const jsonLdFaq = {
       name: "How can I register?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can register directly through the event website. Seats may be limited, so early registration is recommended.",
+        text: "All ticket tiers for AWS Community Day Surat 2026 are sold out. Registration is closed. Thank you for the incredible response!",
       },
     },
     {
