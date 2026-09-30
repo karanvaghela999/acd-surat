@@ -27,6 +27,14 @@ const CHAMPIONS = [
     linkedin: "https://www.linkedin.com/in/ganipadela/",
   },
   {
+    name: "Vaibhav Joshi",
+    role: "Senior Software Engineer @ Avaloq",
+    tier: "patron" as const,
+    initials: "VJ",
+    image: "/diamondtickets/vaibhav-joshi.webp",
+    linkedin: "https://www.linkedin.com/in/vjoshi1286/",
+  },
+  {
     name: "Hiren Samtani",
     role: "Founder & Additional Director, AlmanacInc Private Limited",
     tier: "diamond" as const,
