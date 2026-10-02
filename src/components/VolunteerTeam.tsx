@@ -23,7 +23,7 @@ const VOLUNTEERS = [
     linkedin: "https://www.linkedin.com/in/chharvvi-batra-5635182a1/",
   },
   {
-    name: "Shritsti Shah",
+    name: "Shristi Shah",
     image: "/volunteer-team/shritsti-shah.webp",
     linkedin: "https://www.linkedin.com/in/shristishahh/",
   },
